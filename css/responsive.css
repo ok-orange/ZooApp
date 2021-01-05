@@ -141,8 +141,8 @@ nav.globalMenu.active{
 }
 #text_img{
   position: relative;
-  height: 190px;       width: 80%;
-  top: 10px;           left: 10%;
+  height: 190px;       width: 86%;
+  top: 10px;           left: 7%;
   z-index: 0;
 }
 #text_ae{
