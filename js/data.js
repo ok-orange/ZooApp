@@ -3,7 +3,7 @@ let markerData = [
   {
     title: "とくしま動物園へようこそ！(入り口)",
     pos: {lat: 34.0139, lng: 134.52075},
-    img: "/pic/fli2.JPG",
+    img: "/pic/fly2.JPG",
     num: 0
     //icon: "",
     //infoWindowOpen: true,
