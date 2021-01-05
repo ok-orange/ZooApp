@@ -11,7 +11,7 @@ let markerData = [
   },{
     title: "①フライングゲージ",
     pos: {lat: 34.01532, lng: 134.52141},
-    img: "fly1.JPG",
+    img: "../pic/fly1.JPG",
     num: 1
   },{
     title: "②ニホンカモシカ",
