@@ -3,7 +3,7 @@ let markerData = [
   {
     title: "とくしま動物園へようこそ！(入り口)",
     pos: {lat: 34.0139, lng: 134.52075},
-    img: "restaurant.JPG",
+    img: "./pic/restaurant.JPG",
     num: 0
     //icon: "",
     //infoWindowOpen: true,
@@ -16,77 +16,77 @@ let markerData = [
   },{
     title: "②ニホンカモシカ",
     pos: {lat: 34.01442, lng: 134.52155},
-    img: "kamoshika.JPG",
+    img: "./pic/kamoshika.JPG",
     num: 2
   },{
     title: "③温帯プロムナード",
     pos: {lat: 34.01435, lng: 134.52192},
-    img: "lesserpanda1.JPG",
+    img: "./pic/lesserpanda1.JPG",
     num: 3
   },{
     title: "④ツキノワグマ",
     pos: {lat: 34.01405, lng: 134.5218},
-    img: "tsukinowaguma0.JPG",
+    img: "./pic/tsukinowaguma0.JPG",
     num: 4
   },{
     title: "⑤モンキープロムナード",
     pos: {lat: 34.01395, lng: 134.522133},
-    img: "waokitsunezaru1.JPG",
+    img: "./pic/waokitsunezaru1.JPG",
     num: 5
   },{
     title: "⑥タイガープロムナード",
     pos: {lat: 34.01435, lng: 134.5226},
-    img: "tora1.JPG",
+    img: "./pic/tora1.JPG",
     num: 6
   },{
     title: "⑦セイロンゾウ",
     pos: {lat: 34.01465, lng: 134.52288},
-    img: "zou1.JPG",
+    img: "./pic/zou1.JPG",
     num: 7
   },{
     title: "⑧ミーアキャット",
     pos: {lat: 34.0153, lng: 134.52306},
-    img: "miacat3.JPG",
+    img: "./pic/miacat3.JPG",
     num: 8
   },{
     title: "⑨ライオン",
     pos: {lat: 34.01532, lng: 134.52284},
-    img: "lion.JPG",
+    img: "./pic/lion.JPG",
     num: 9
   },{
     title: "⑩サバンナ区",
     pos: {lat: 34.0157, lng: 134.52256},
-    img: "sabanna3.JPG",
+    img: "./pic/sabanna3.JPG",
     num: 10
   },{
     title: "⑪フラミンゴ",
     pos: {lat: 34.01487, lng: 134.522515},
-    img: "flamingo1.JPG",
+    img: "./pic/flamingo1.JPG",
     num: 11
   },{
     title: "⑫オオカミ",
     pos: {lat: 34.01482, lng: 134.520447},
-    img: "ookami1.JPG",
+    img: "./pic/ookami1.JPG",
     num: 12
   },{
     title: "⑬ホッキョクグマ",
     pos: {lat: 34.01452, lng: 134.52031},
-    img: "pololo4.JPG",
+    img: "./pic/pololo4.JPG",
     num: 13
   },{
     title: "⑮アンデスコンドル",
     pos: {lat: 34.014425, lng: 134.51969},
-    img: "condol.JPG",
+    img: "./pic/condol.JPG",
     num: 14
   },{
     title: "⑯こども動物園",
     pos: {lat: 34.01425, lng: 134.51915},
-    img: "hitsuji2.JPG",
+    img: "./pic/hitsuji2.JPG",
     num: 15
   },{
     title: "多目的広場(乗馬体験)",
     pos: {lat: 34.0142900, lng: 134.5185},
-    img: "pony1.JPG",
+    img: "./pic/pony1.JPG",
     num: 16
   }
 ];
