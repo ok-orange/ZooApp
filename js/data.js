@@ -3,7 +3,7 @@ let markerData = [
   {
     title: "とくしま動物園へようこそ！(入り口)",
     pos: {lat: 34.0139, lng: 134.52075},
-    img: "pic/restaurant.jpg",
+    img: "/pic/restaurant.jpg",
     num: 0
     //icon: "",
     //infoWindowOpen: true,
@@ -11,17 +11,17 @@ let markerData = [
   },{
     title: "①フライングゲージ",
     pos: {lat: 34.01532, lng: 134.52141},
-    img: "pic/fly1.jpg",
+    img: "/pic/fly1.jpg",
     num: 1
   },{
     title: "②ニホンカモシカ",
     pos: {lat: 34.01442, lng: 134.52155},
-    img: "pic/kamoshika.jpg",
+    img: "/pic/kamoshika.jpg",
     num: 2
   },{
     title: "③温帯プロムナード",
     pos: {lat: 34.01435, lng: 134.52192},
-    img: "pic/lesserpanda1.jpg",
+    img: "/pic/lesserpanda1.jpg",
     num: 3
   },{
     title: "④ツキノワグマ",
