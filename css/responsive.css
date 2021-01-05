@@ -50,7 +50,7 @@
   position: absolute;
   width: 38px;
   height: 4px;
-  left: 5px;
+  left: 0px;
   background: #32cd32;/*#0cf;*/
  -webkit-transition: 0.3s ease-in-out;
   -moz-transition: 0.3s ease-in-out;
@@ -149,8 +149,8 @@ nav.globalMenu.active{
   position: relative;
   text-align: justify;
   text-justify: auto;
-  height: 300px;      width:  100%;
-  top: 30px;           left: 1%;
+  height: 300px;      width:  96%;
+  top: 30px;           left: 2%;
   z-index: 0;
 }
 
