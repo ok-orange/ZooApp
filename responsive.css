@@ -1,0 +1,161 @@
+
+*{ /*初期化*/
+  margin:0px;     padding:0px;
+}
+
+
+/*マップ*/
+.map_group{
+  position: fixed;
+  height: 250px;    width: 100%;
+  max-width: 100%;
+  top: 0px;         left: 0px;
+  z-index: 100;
+}
+#map{
+  position: fixed;
+  height: 250px;    width: 100%;
+  top: 0px;         left: 0px;
+}
+
+
+/*ボタン　→　後でメニューバーに格納*
+.button_group{
+  position: fixed;
+  height: 25px;    width: 100%;
+  top: 210px;       left: 0px;
+  z-index: 100;
+}
+#button_map{
+  position: fixed;
+  height: 25px;    width: 100%;
+  top: 0px;       left: 0px;
+}
+
+
+/* ハンバーガーボタン */
+.hamburger{
+  display: block;
+  position: fixed;
+  z-index: 150;
+  right: 2%;
+  top: 93%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  text-align: left;
+}
+.hamburger span{
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  left: 5px;
+  background: #32cd32;/*#0cf;*/
+ -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.hamburger span:nth-child(1){
+  top: 10px;
+}
+.hamburger span:nth-child(2){
+  top: 20px;
+}
+.hamburger span:nth-child(3){
+  top: 30px;
+}
+
+/*ナビ開いているときのボタン*/
+.hamburger.active span:nth-child(1){
+  top: 15px;
+  left: 5px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.hamburger.active span:nth-child(2),
+.hamburger.active span:nth-child(3){
+  top: 15px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+nav.globalMenu{
+  position: fixed;
+  z-index: 100;
+  bottom: 7%;
+  left: 75%;
+  color: #000;
+  background: #ddd;
+  text-align: left;
+  transform: translateX(100%);
+  transition: all 0.5s;
+  width: 100%;
+}
+nav.globalMenu ul{
+  background: #cfc;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+nav.globalMenu ul li{
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  border-bottom: 1px solid #fff;
+}
+nav.globalMenu ul li:last-child{
+  padding-bottom: 0;
+  border-bottom: none;
+}
+nav.globalMenu ul li:hover{
+  background :#afa;
+}
+nav.globalMenu ul li a{
+  display: block;
+  color: #000;
+  padding: 1em 0;
+  text-decoration: none;
+}
+/* このクラスをjQueryで付与・削除する */
+nav.globalMenu.active{
+  transform: translateX(0%);
+}
+
+
+/*本文*/
+.text_group{
+  position: relative;
+  height: 1000px;      width:  100%;
+  top:    250px;      left:   0px;
+  z-index: 10;
+}
+#text_title{
+  position: sticky;
+  background: white;
+  height: 25px;      width:  100%;
+  top: 250px;           left: 0px;
+  padding: 11px 0;
+  z-index: 10;
+}
+#text_img{
+  position: relative;
+  height: 190px;       width: 80%;
+  top: 10px;           left: 10%;
+  z-index: 0;
+}
+#text_ae{
+  position: relative;
+  text-align: justify;
+  text-justify: auto;
+  height: 300px;      width:  100%;
+  top: 30px;           left: 1%;
+  z-index: 0;
+}
+
+p{
+  word-wrap: normal;
+  font-size: medium;
+  font-family: "sans-serif";
+}
