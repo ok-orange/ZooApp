@@ -20,9 +20,6 @@ $.cookie('markerData', JSON.stringify(markerData), {secure:true});
 window.onload = () =>{
   getPosition();    //最初に現在位置を取得しておく
   initMap();
-  /*if(stock_f == 0){
-    StockPosition();
-  }*/
 }
 
 /*---------- メインの関数 --------------------------------------------------------------
@@ -203,19 +200,14 @@ function PointCheck(pos){
   alert("PointCheck.");
   //var i = 0;
     if(cp_f == 0){
-      
       for(var i=0; i<CL; i++){
-        
         let d = checkDistance(pos.latitude, pos.longitude, checkCircle[i].lat, checkCircle[i].lng);
-        
-        //if(cp_f == 0){    //初回
           if(d < checkCircle[i].r){
             if(i == 0){ cp_num = 10; }else{ cp_num = i; 
               }alert("i=" + i +" cp_num=" + cp_num +" cp_f=" + cp_f + "inTime" +inTime);
             inTime ++;
             cp_f = 1;
           }else{}
-    //}
   }}else{    //内側
     let d = checkDistance(pos.latitude, pos.longitude, checkCircle[cp_num].lat, checkCircle[cp_num].lng);
     alert("ok!"+"\n"+" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime" +inTime);
@@ -245,9 +237,6 @@ function StockPosition(){
         alert("stock position.");
         //PointCheck(getPosition());
         PointCheck(data);
-      //}else{
-        //PointCheck_Fixed(getPosition());
-      //}
       //LSに格納する型
       //{チェックポイントNo, チェックイン時間, 滞在時間}
       //DataToLS = {};
@@ -255,25 +244,6 @@ function StockPosition(){
   }else{
 }}
 
-
-/*---------- 定期的に位置情報を取得＆Localstrageに格納 ----------*
-function StockPosition(){
-  if(stock_f == 0){
-    position_timer = setInterval(function(){
-      //↓ 項目ごとに入れなおす？　→　受け渡し楽かも
-      var cp = checkPoint(getPosition());
-      //チェックポイント出るときに送信データ完成、判別
-      if(cp == 1){
-        //↓ シンプルなデータの格納に書き換え
-        SaveData(チェックポイント、時間、操作);
-        alert("cp = " + cp);
-      }else{}
-    }, 3000); stock_f = 1;
-  }
-  else{
-    alert("unstocked...");
-}}
-*/
 
 /*---------- LocalStrageのPOST(確認用) ----------*/
 function SendLS(){
