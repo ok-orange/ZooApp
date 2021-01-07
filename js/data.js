@@ -3,277 +3,158 @@ let markerData = [
   {
     title: "とくしま動物園へようこそ！(入り口)",
     pos: {lat: 34.0139, lng: 134.52075},
-    img: "./pic/restaurant.JPG",
+    img: "/media/restaurant.jpg",
     num: 0
-    //icon: "",
-    //infoWindowOpen: true,
-    //infoWindowContent: "入り口",
   },{
     title: "①フライングゲージ",
-    pos: {lat: 34.01532, lng: 134.52141},
-    img: "./pic/fly1.JPG",
+    pos: {lat: 34.01531, lng: 134.52141},
+    img: "/media/fly1.jpg",
     num: 1
   },{
     title: "②ニホンカモシカ",
     pos: {lat: 34.01442, lng: 134.52155},
-    img: "./pic/kamoshika.JPG",
+    img: "/media/kamoshika.jpg",
     num: 2
   },{
     title: "③温帯プロムナード",
     pos: {lat: 34.01435, lng: 134.52192},
-    img: "./pic/lesserpanda1.JPG",
+    img: "/media/lesserpanda1.jpg",
     num: 3
   },{
     title: "④ツキノワグマ",
     pos: {lat: 34.01405, lng: 134.5218},
-    img: "./pic/tsukinowaguma0.JPG",
+    img: "/media/tsukinowaguma0.jpg",
     num: 4
   },{
     title: "⑤モンキープロムナード",
     pos: {lat: 34.01395, lng: 134.522133},
-    img: "./pic/waokitsunezaru1.JPG",
+    img: "/media/waokitsunezaru1.jpg",
     num: 5
   },{
     title: "⑥タイガープロムナード",
     pos: {lat: 34.01435, lng: 134.5226},
-    img: "./pic/tora1.JPG",
+    img: "/media/tora1.jpg",
     num: 6
   },{
     title: "⑦セイロンゾウ",
     pos: {lat: 34.01465, lng: 134.52288},
-    img: "./pic/zou1.JPG",
+    img: "/media/zou1.jpg",
     num: 7
   },{
     title: "⑧ミーアキャット",
     pos: {lat: 34.0153, lng: 134.52306},
-    img: "./pic/miacat3.JPG",
+    img: "/media/miacat3.jpg",
     num: 8
   },{
     title: "⑨ライオン",
     pos: {lat: 34.01532, lng: 134.52284},
-    img: "./pic/lion.JPG",
+    img: "/media/lion.jpg",
     num: 9
   },{
     title: "⑩サバンナ区",
     pos: {lat: 34.0157, lng: 134.52256},
-    img: "./pic/sabanna3.JPG",
+    img: "/media/sabanna3.jpg",
     num: 10
   },{
     title: "⑪フラミンゴ",
-    pos: {lat: 34.01487, lng: 134.522515},
-    img: "./pic/flamingo1.JPG",
+    pos: {lat: 34.01487, lng: 134.52250},
+    img: "/media/flamingo1.jpg",
     num: 11
   },{
     title: "⑫オオカミ",
     pos: {lat: 34.01482, lng: 134.520447},
-    img: "./pic/ookami1.JPG",
+    img: "/media/ookami1.jpg",
     num: 12
   },{
     title: "⑬ホッキョクグマ",
     pos: {lat: 34.01452, lng: 134.52031},
-    img: "./pic/pololo4.JPG",
+    img: "/media/pololo4.jpg",
     num: 13
   },{
     title: "⑮アンデスコンドル",
     pos: {lat: 34.014425, lng: 134.51969},
-    img: "./pic/condol.JPG",
+    img: "/media/condol.jpg",
     num: 14
   },{
     title: "⑯こども動物園",
     pos: {lat: 34.01425, lng: 134.51915},
-    img: "./pic/hitsuji2.JPG",
+    img: "/media/hitsuji2.jpg",
     num: 15
   },{
     title: "多目的広場(乗馬体験)",
     pos: {lat: 34.0142900, lng: 134.5185},
-    img: "./pic/pony1.JPG",
+    img: "/media/pony1.jpg",
     num: 16
   }
 ];
 
 
-/*---------- チェックポイントの判別用 ----------*/
-//※50と100を並び替えてまとめる
-
-let checkData = [
-  {
-    pos: {lat: 34.01532, lng: 134.52141},  //とり
+/*---------- チェックポイントの目安円 ----------*/
+//サバンナ区がチェックポイント２つのため、
+//markerDataとの番号合わせに片方をcheckCircle[0]とする
+let checkCircle = [
+  { lat: 34.01542, lng: 134.52263,  //サバンナ１
+    r: 8
+  },{
+    lat: 34.01529, lng: 134.52138,  //とり
+    r: 29
+  },{
+    lat: 34.01443, lng: 134.52158,  //カモシカ
+    r: 10
+  },{
+    lat: 34.01433, lng: 134.52192,  //温帯
+    r: 18
+  },{
+    lat: 34.01404, lng: 134.52183,  //くま
+    r: 14
+  },{
+    lat: 34.01397, lng: 134.52214, //さる
+    r: 15
+  },{
+    lat: 34.01422, lng: 134.52254,  //とら
+    r: 22
+  },{
+    lat: 34.01466, lng: 134.52292,  //ゾウ
+    r: 31
+  },{
+    lat: 34.01526, lng: 134.52303,  //ミーア
+    r: 8
+  },{
+    lat: 34.01526, lng: 134.52284,  //ライオン
+    r: 8
+  },{
+    lat: 34.01520, lng: 134.52230,  //サバンナ２
+    r: 8
+  },{
+    lat: 34.01487, lng: 134.52246,  //フラミンゴ
+    r: 15
+  },{
+    lat: 34.01479, lng: 134.52043,  //オオカミ
+    r: 9
+  },{
+    lat: 34.01455, lng: 134.52031,  //ホッキョクグマ
+    r: 15
+  },{
+    lat: 34.01437, lng: 134.51972,  //コンドル
+    r: 12
+  },{
+    lat: 34.01430, lng: 134.51911,  //こども動物園
     r: 38
   },{
-    pos: {lat: 34.01442, lng: 134.52155},  //カモシカ
-    r: 20
-  },{
-    pos: {lat: 34.01435, lng: 134.52192},  //温帯 50
-    r: 23
-  },{
-    pos: {lat: 34.01405, lng: 134.5218},  //くま 40
-    r: 20
-  },{
-    pos: {lat: 34.01395, lng: 134.522133}, //さる 50
-    r: 23
-  },{
-    pos: {lat: 34.01435, lng: 134.5226},  //とら 60
-    r: 30
-  },{
-    pos: {lat: 34.01465, lng: 134.52288},  //ゾウ 60
-    r: 33
-  },{
-    pos: {lat: 34.0153, lng: 134.52306},  //ミーア 50
-    r: 18
-  },{
-    pos: {lat: 34.01532, lng: 134.52284},  //ライオン 40
-    r: 18
-  },{
-    pos: {lat: 34.0157, lng: 134.52256},  //サバンナ 120　※要調整
-    r: 50
-  },{
-    pos: {lat: 34.01487, lng: 134.522515},  //フラミンゴ 50
-    r: 25
-  },{
-    pos: {lat: 34.01482, lng: 134.520447},  //オオカミ 40
-    r: 20
-  },{
-    pos: {lat: 34.01452, lng: 134.52031},  //ホッキョクグマ 40
-    r: 22
-  },{
-    pos: {lat: 34.014425, lng: 134.51969},  //コンドル 40
-    r: 22
-  },{
-    pos: {lat: 34.01425, lng: 134.51915},  //こども動物園 90
+    lat: 34.01430, lng: 134.51911,  //こども動物園
     r: 38
   }
 ];
 
 
-/*---------- メッシュ ----------*/
-var mesh1, mesh2, mesh3, mesh4, mesh5, mesh6, mesh7, mesh8, mesh9, mesh10,mesh11, mesh12;
-const meshData = [
-  mesh1 = new google.maps.Polygon({
-    paths: 
-    [{lat: 34.01555, lng: 134.5183},{lat: 34.01490, lng: 134.5183},
-     {lat: 34.01490, lng: 134.5195},{lat: 34.01555, lng: 134.5195}],
-    strokeColor: "#FF0000",
-    strokeOpacity: 0.6,
-    strokeWeight: 0.7,
-    fillColor: "#FF0000",
-    fillOpacity: 0.12,
-  }), 
-  mesh2 = new google.maps.Polygon({
-    paths: 
-    [{lat: 34.01555, lng: 134.5195},{lat: 34.01490, lng: 134.5195},
-     {lat: 34.01490, lng: 134.5207},{lat: 34.01555, lng: 134.5207}],
-    strokeColor: "#FF0000",
-    strokeOpacity: 0.6,
-    strokeWeight: 0.7,
-    fillColor: "#FF0000",
-    fillOpacity: 0.12,
-  }), 
-  mesh3 = new google.maps.Polygon({
-    paths: 
-    [{lat: 34.01555, lng: 134.5207},{lat: 34.01490, lng: 134.5207},
-     {lat: 34.01490, lng: 134.5219},{lat: 34.01555, lng: 134.5219}],
-    strokeColor: "#FF0000",
-    strokeOpacity: 0.6,
-    strokeWeight: 0.7,
-    fillColor: "#FF0000",
-    fillOpacity: 0.12,
-  }),
-  mesh4 = new google.maps.Polygon({
-    paths: 
-    [{lat: 34.01555, lng: 134.5219},{lat: 34.01490, lng: 134.5219},
-     {lat: 34.01490, lng: 134.5231},{lat: 34.01555, lng: 134.5231}],
-    strokeColor: "#FF0000",
-    strokeOpacity: 0.6,
-    strokeWeight: 0.7,
-    fillColor: "#FF0000",
-    fillOpacity: 0.12,
-  }),
-  mesh5 = new google.maps.Polygon({
-    paths: 
-    [{lat: 34.01490, lng: 134.5183},{lat: 34.01425, lng: 134.5183},   //左 上・下
-     {lat: 34.01425, lng: 134.5195},{lat: 34.01490, lng: 134.5195}],  //右 上・下
-    strokeColor: "#FFFFFF",
-    strokeOpacity: 0.6,
-    strokeWeight: 0.7,
-    fillColor: "#FFFFFF",
-    fillOpacity: 0.12,
-  }), 
-  mesh6 = new google.maps.Polygon({
-    paths: 
-    [{lat: 34.01490, lng: 134.5195},{lat: 34.01425, lng: 134.5195},
-     {lat: 34.01425, lng: 134.5207},{lat: 34.01490, lng: 134.5207}],
-    strokeColor: "#FFFFFF",
-    strokeOpacity: 0.6,
-    strokeWeight: 0.7,
-    fillColor: "#FFFFFF",
-    fillOpacity: 0.12,
-  }), 
-  mesh7 = new google.maps.Polygon({
-    paths: 
-    [{lat: 34.01490, lng: 134.5207},{lat: 34.01425, lng: 134.5207},
-     {lat: 34.01425, lng: 134.5219},{lat: 34.01490, lng: 134.5219}],
-    strokeColor: "#FFFFFF",
-    strokeOpacity: 0.6,
-    strokeWeight: 0.7,
-    fillColor: "#FFFFFF",
-    fillOpacity: 0.12,
-  }),
-  mesh8 = new google.maps.Polygon({
-    paths: 
-    [{lat: 34.01490, lng: 134.5219},{lat: 34.01425, lng: 134.5219},
-    {lat: 34.01425, lng: 134.5231},{lat: 34.01490, lng: 134.5231}],
-    strokeColor: "#FFFFFF",
-    strokeOpacity: 0.6,
-    strokeWeight: 0.7,
-    fillColor: "#FFFFFF",
-    fillOpacity: 0.12,
-  }),
-  mesh9 = new google.maps.Polygon({
-    paths: 
-    [{lat: 34.01425, lng: 134.5183},{lat: 34.01360, lng: 134.5183},   //左 上・下
-     {lat: 34.01360, lng: 134.5195},{lat: 34.01425, lng: 134.5195}],  //右 上・下
-    strokeColor: "#0000FF",
-    strokeOpacity: 0.6,
-    strokeWeight: 0.7,
-    fillColor: "#0000FF",
-    fillOpacity: 0.12,
-  }), 
-  mesh10 = new google.maps.Polygon({
-    paths: 
-    [{lat: 34.01425, lng: 134.5195},{lat: 34.01360, lng: 134.5195},
-     {lat: 34.01360, lng: 134.5207},{lat: 34.01425, lng: 134.5207}],
-    strokeColor: "#0000FF",
-    strokeOpacity: 0.6,
-    strokeWeight: 0.7,
-    fillColor: "#0000FF",
-    fillOpacity: 0.12,
-  }), 
-  mesh11 = new google.maps.Polygon({
-    paths:
-    [{lat: 34.01425, lng: 134.5207},{lat: 34.01360, lng: 134.5207},
-     {lat: 34.01360, lng: 134.5219},{lat: 34.01425, lng: 134.5219}],
-    strokeColor: "#0000FF",
-    strokeOpacity: 0.6,
-    strokeWeight: 0.7,
-    fillColor: "#0000FF",
-    fillOpacity: 0.12,
- }),
-  mesh12 = new google.maps.Polygon({
-    paths: 
-    [{lat: 34.01425, lng: 134.5219},{lat: 34.01360, lng: 134.5219},
-    {lat: 34.01360, lng: 134.5231},{lat: 34.01425, lng: 134.5231}],
-    strokeColor: "#0000FF",
-    strokeOpacity: 0.6,
-    strokeWeight: 0.7,
-    fillColor: "#0000FF",
-    fillOpacity: 0.12,
-  })];
+/*---------- チェックポイント(Polygon) ----------*
+const checkCoords = [
+  { lat: 34.01564, lng: 134.5218},    //右上
+  { lat: 34.01497, lng: 134.5218},    //右下
+  { lat: 34.01497, lng: 134.521},     //左下
+  { lat: 34.01564, lng: 134.521}      //左上
+];
+*/
+let checkData = [
 
-/* 区切り ----------------------------
-{ pos: {lat: 34.01555, lng: 134.5195},
-},{
-  pos: {lat: 34.01555, lng: 134.5207},
-},{
-  pos: {lat: 34.01555, lng: 134.5219},
-}
-------------------------------------*/
+];

@@ -6,17 +6,13 @@ var position_timer;
 var posi_f = 0;
 var mesh_f = 0;
 var mesh_num = 0;
+var check_rectangle;
 var check_circle;
 var test_i = 0;
 var test_i2 = 0;
-// meshData1, meshData2, meshData3;
-//let mesh1, mesh2, mesh3;
 
-/*
-let markerData = [];*/
 //↓{secure:true}があるとhttp通信だとできない？(12/09 解決)
 $.cookie('markerData', JSON.stringify(markerData), {secure:true});
-
 
 
 "use strict";
@@ -34,40 +30,80 @@ window.onload = () =>{
 ・initMap()
 -------------------------------------------------------------------------------------*/
 
-function AnimalExplain(num){
-  return AnimalData[num];
-}
-
-function AnimalInformation(mark_title, mark_img, mark_num){
-  /*var geo_text2 = "<h3>ここに" + mark_title + "の説明文が表示されます。<\h3>" + "\n"
-                  + "<h3>表示されている画像は" + mark_img + "です。<\h3>" + "\n";*/
-  var geo_text1 = "<h1>" + mark_title +"<\h1>";
-  //mark_numに対応する紹介文を表示←別ファイル作成←関数作成
-  var geo_text2 = "<h3>" +  AnimalExplain(mark_num) + "<\h3>";
+//チェックポイント判別で表示・非表示
+function AnimalInformation(mark_title, mark_img, mark_num, rslt){
+  var geo_text1 = "<h1>" + mark_title +"<\h1>";   //var geo_text2 = "<h3>" +  AnimalExplain(mark_num) + "<\h3>";
+  var img = document.getElementById("text_img");
+  
+  if(rslt == 1){
+    var geo_text2 = AnimalData[mark_num];
+  }else{
+    var geo_text2 = "<h4>動物の近くに行くと、情報が見られるようになるよ。"+"<br>"+mark_title+"を見に行こう！<\h4>";
+  }
+  img.src = mark_img;
   document.getElementById("text_title").innerHTML = geo_text1;   
   document.getElementById("text_ae").innerHTML = geo_text2;   
-
-  var img = document.getElementById("text_img");
-  img.src = mark_img;
+  alert("AnimalInformation");
 }
 
-var check_rectangle;
+
+/*----- 現在地とチェックポイントとの距離測定 -----*/
+function checkDistance(lat1, lng1, lat2, lng2){
+  //誤差 1m 程！！(比：Google Map)
+  lat1 *= Math.PI / 180;
+  lng1 *= Math.PI / 180;
+  lat2 *= Math.PI / 180;
+  lng2 *= Math.PI / 180;
+  let m = 6371000 * Math.acos(Math.cos(lat1)*Math.cos(lat2)*Math.cos(lng2-lng1) + Math.sin(lat1)*Math.sin(lat2));
+  return Math.floor(m * 10)/10;
+}
+/*----- チェックポイント判定 -----*/
+function PointCheck_Mark(mark_title, mark_img, mark_num){
+  let cp_lat = checkCircle[mark_num].lat;
+  let cp_lng = checkCircle[mark_num].lng;
+  let pos = getPosition();
+  //let pos = {latitude: 34.01520, longitude: 134.52230};
+  let d = checkDistance(pos.latitude, pos.longitude, cp_lat, cp_lng);
+  //var d = 10
+  let rslt = 0;
+  
+  if(mark_num == 10){
+    if(d < checkCircle[mark_num].r){
+      rslt = 1;
+      alert("サバンナ2");
+    }else if(checkDistance(pos.latitude, pos.longitude, checkCircle[0].lat, checkCircle[0].lng) < checkCircle[0].r){
+      rslt = 1;
+      alert("サバンナ1");
+    }else{
+      rslt = 0;
+      alert("サバンナ０");
+  }}else{
+    if(d < checkCircle[mark_num].r){
+      rslt = 1;
+    }else{
+      rslt = 0;
+  }}  //alert("rslt = " + rslt + "\n" + mark_num + "\n" + d);
+  AnimalInformation(mark_title, mark_img, mark_num, rslt);
+}
+
+
+/////*-------------------- initMap() --------------------*/////
 function initMap(){
   map = new google.maps.Map(document.getElementById("map"), {
         zoom: 17,
-        center: {lat: 34.0145, lng: 134.5208},
+        center: {lat: 34.0147, lng: 134.5208},
         mapTypeId: "satellite"
   });
 
-  /*----- チェックポイントの確認用(ポリゴン) -----*/
-  for(const check of checkData){
+  /*----- チェックポイントの確認用(円) -----*/
+  for(const check_c of checkCircle){
     (function(){
       check_circle = new google.maps.Circle({
         fillOpacity: 0.0,
         strokeWeight: 0.8,
-        radius: check.r,
+        radius: check_c.r,
         map: map,
-        center: check.pos,
+        center: {lat:check_c.lat, lng:check_c.lng}
       });
   }());}
   
@@ -93,70 +129,16 @@ function initMap(){
         });
         marker_fixed.addListener('click', function(){
           infoWindow_fixed.open(map, marker_fixed);
-          AnimalInformation(mark.title, mark.img, mark.num);
+          //AnimalInformation(mark.title, mark.img, mark.num);
+          //チェックポイント判別
+          //PointCheck_Mark(mark.num);
+          PointCheck_Mark(mark.title, mark.img, mark.num);
       });}
   }());}
-
-  const checkCoords = [
-    { lat: 34.01565, lng: 134.5218},
-    { lat: 34.01496, lng: 134.5218},
-    { lat: 34.01496, lng: 134.521},
-    { lat: 34.01565, lng: 134.521}
-  ];
-  check_rectangle= new google.maps.Polygon({
-    paths: checkCoords,
-    strokeColor: "#FF0000",
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: "#FF0000",
-    fillOpacity: 0.35
-  });
-  check_rectangle.setMap(map);
 }
 
 
-/*----- テスト用関数 ----------------------------------------------------------------*/
-/*----- チェックポイント判定 -----*/
-function JudgeCP(pos){
-  const result_cp = google.maps.geometry.poly.containsLocation(
-    pos,
-    check_rectangle
-  ) ? 1 : 0;    //A ? B : c; → AがtrueならB,falseならCを返す
-  alert("judge：" + result_cp);
-  return result_cp;
-}
-
-/*----- チェックテスト用のマーカー表示 -----*/
-let mark_ctest;
-var marker_ctest;
-var test_j = 0;
-var pos;
-
-function PositionForCheck(){
-  if(test_i == 0){
-    test_i = 1;
-    if(test_j == 0){
-      pos = new google.maps.LatLng(34.015313, 134.5213);
-      test_j = 1;
-    }else{
-      pos = new google.maps.LatLng(34.015313, 134.5185);
-      test_j = 0;
-    }
-    marker_ctest = new google.maps.Marker({
-      position: pos,    map: map,
-      icon: {
-        fillcolor: "white",     fillOpacity: 0.2,
-        strokeColor: "white",   strokeWeight: 0.5,
-        scale: 10,
-    }});marker_ctest.setMap(map);
-  }else{
-    test_i = 0;
-    marker_ctest.setMap(null);    //マーカーを非表示にする
-  }
-  //var a = JudgeCP(pos);   alert("a:" + a);
-}
-
-
+/*----- テスト用関数(1/8 4:00削除) ----------------------------------------------------*/
 /*---------- サブの関数 ----------------------------------------------------------------
 ・getPosition()
 ・SaveData(data)
@@ -190,8 +172,6 @@ function getPosition(){
         longitude: position.coords.longitude,
         //↓わかりやすく変換
         timestamp: position.timestamp
-        //heading: position.coords.heading,
-        //speed: position.coords.speed,
       };
       //各項目で変数に入れなおす？
       Mark = mark;
@@ -209,32 +189,70 @@ function SaveData(data){
       LocationData = LocationData.length > 2880 ? LocationData.slice(-10) : LocationData;
   }LocationData.push(data);
   localStorage.setItem('LocationData', JSON.stringify(LocationData));
-  alert("localstrage：" + Object.values(localStorage));
+  //alert("localstrage：" + Object.values(localStorage));
+  alert("Save Data.");
 }
 
 
-/*---------- チェックポイント判定してLS格納値を返す ----------*
-//マーカータップしたときのみ判別でもいいかも
-//マーカーのaddListenerに追加
-function checkPoint(座標){
- if(チェックポイント内){
-  return 1;
- }else{
-  return 0;
-}}
-*/
+var CL = checkCircle.length;
+var cp_f = 0;
+var cp_num = 0;
+var inTime = 0;
+/*---------- 定期取得時のチェックポイント判別 ----------*/
+function PointCheck(pos){
+  alert("PointCheck.");
+  //var i = 0;
+    if(cp_f == 0){
+      
+      for(var i=0; i<CL; i++){
+        
+        let d = checkDistance(pos.latitude, pos.longitude, checkCircle[i].lat, checkCircle[i].lng);
+        
+        //if(cp_f == 0){    //初回
+          if(d < checkCircle[i].r){
+            if(i == 0){ cp_num = 10; }else{ cp_num = i; 
+              }alert("i=" + i +" cp_num=" + cp_num +" cp_f=" + cp_f + "inTime" +inTime);
+            inTime ++;
+            cp_f = 1;
+          }else{}
+    //}
+  }}else{    //内側
+    let d = checkDistance(pos.latitude, pos.longitude, checkCircle[cp_num].lat, checkCircle[cp_num].lng);
+    alert("ok!"+"\n"+" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime" +inTime);
+      if(d < checkCircle[cp_num].r){
+        alert("ok"+"\n"+" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime" +inTime);
+        inTime ++;
+      }else{  //出たとき
+        //LSに番号、滞在・アウト時間、操作保存
+        //localStorage.setItem('data',cp_num);
+        alert("cp_num:" + cp_num + "cp_f:" + cp_f + "\n"
+        + "inTime:" + inTime);
+        inTime = 0;
+        cp_f = 0;
+  }}
+}
 
+function PointCheck_Fixed(){
+
+}
 
 /*---------- 定期的に位置情報を取得＆Localstrageに格納 ----------*/
 function StockPosition(){
+  var data = {latitude: 34.01432, longitude: 134.52191};
   if(stock_f == 0){
-  position_timer = setInterval(function(){
-    SaveData(getPosition());
-    alert("stock position.");
-    }, 3000);
-    stock_f = 1;
+    position_timer = setInterval(function(){
+      //if(cp_f == 0){
+        alert("stock position.");
+        //PointCheck(getPosition());
+        PointCheck(data);
+      //}else{
+        //PointCheck_Fixed(getPosition());
+      //}
+      //LSに格納する型
+      //{チェックポイントNo, チェックイン時間, 滞在時間}
+      //DataToLS = {};
+    }, 5000);  stock_f = 1;
   }else{
-    alert("unstocked...");
 }}
 
 
@@ -257,26 +275,6 @@ function StockPosition(){
 }}
 */
 
-/*---------- データをサーバに送信 ----------*/
-function SendData(data){
-  var csrf_token = Cookies.get('csrftoken');
-  const XHR = new XMLHttpRequest();
-
-  //リクエストをセットアップ
-  XHR.open('POST', 'https://localhost:8000/polls/');
-  //フォームのデータのPOSTリクエストを扱うために必要なHTTPヘッダを追加
-  XHR.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
-  XHR.setRequestHeader("X-CSRFToken", csrf_token);
-  //データ送信('キー='+データの中身)
-  XHR.send('data='+data);
-
-  //データ受信が成功したとき
-  XHR.onload = function(){
-    alert("データ受信完了！");
-  }
-}
-
-
 /*---------- LocalStrageのPOST(確認用) ----------*/
 function SendLS(){
   let data = getPosition();
@@ -290,6 +288,7 @@ function SendLS(){
 /*---------- 位置情報の取得停止 ----------*/
 function StopGetPosition(){
   clearInterval(position_timer);
+  //SendLS(FormsのURLに乗せるデータ);
 }
 
 
@@ -317,7 +316,7 @@ function ShowPosition(){
   }else{
     posi_f = 0;
     marker.setMap(null);    //マーカーを非表示にする
-  }alert("posi_f=" + posi_f);
+  }//alert("posi_f=" + posi_f);
 }
 
 
@@ -340,27 +339,3 @@ $(function(){
     }
   })
 })
-
-
-
-
-
-/*
-var mesh1,・・・,mesh12;
-const meshData = [・・・];
-*/
-/*---------- メッシュマップ ----------*/
-function ShowMesh(){
-for (let i=0; i<meshData.length; i++){
-  meshData[i].setMap(map);
-}
-if(mesh_f == 0){
-  for(let i=0; i<meshData.length; i++){
-    meshData[i].setVisible(true);
-  } mesh_f = 1;    mesh_num++;
-}else if(mesh_f == 1){
-  for(let i=0; i<meshData.length; i++){
-    meshData[i].setVisible(false);
-  } mesh_f = 0;
-}//alert("mesh_f = " + mesh_f + "\n" + "mesh_num = " + mesh_num);
-}
