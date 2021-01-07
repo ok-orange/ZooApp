@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--{% load static %}-->
+{% load static %}
 <html lang="ja">
 
 <head>
@@ -12,12 +12,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="css/responsive.css">
+  <link rel="stylesheet" type="text/css" href="{%static 'css/index.css'%}">
+  <link rel="stylesheet" type="text/css" href="{%static 'css/responsive.css'%}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" user-scalable=no>   <!--レスポンシブデザイン-->
 
-  <script src="js/data.js"></script>
-  <script src="js/index.js"></script>
-  <script src="js/animal_explain.js"></script>
+  <script src="{% static 'js/data.js' %}"></script>
+  <script src="{% static 'js/index.js' %}"></script>
+  <script src="{% static 'js/animal_explain.js' %}"></script>
 
   <!--カメラのcanvas系？-->
   <link rel="canonical" herf = "https://syncer.jp/Web/API_Interface/Reference/IDL/HTMLCanvasElement/toDataURL/">
@@ -72,15 +73,12 @@
   <div class = "text_group">
     <pre id = "text_title"></pre>
     <img id = "text_img"></pre>
-    <!-- 画像を表示できるかの確認
-      <img src="/media/zou.jpg" width="420px" height="250px"/>  -->
     <p id = "text_ae"></p>
     <!--<p>msg：{{msg}}</p>
     <p>data：{{data}}</p>-->
   </div>
 
   
-
 
   <!-- ハンバーガーメニューボタン -->
   <div class = "hamburger">
@@ -90,12 +88,10 @@
   </div>
   <nav class = "globalMenu">
     <ul>
-      <li><a href="#" onclick="PositionForCheck()">　チェックテスト</a></li>
       <li><a href="#" onclick="ShowPosition()">　現在地</a></li>
       <li><a href="#" onclick="StockPosition()">　定期取得</a></li>
       <li><a href="#" onclick="StopGetPosition()">　取得停止</a></li>
-      <li><a href="#" onclick="SendLS()">　LSをサーバに送信</a></li>
-      <li><a href="close.html">　アプリを終了する</a></li>
+      <li><a href="close/">　アプリを終了する</a></li>
       <!--<li><a href="#" onclick="location.href='https://forms.gle/'+PlusURL()">アンケートに答える</a></li>-->
     </ul>
   </nav>
