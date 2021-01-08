@@ -65,7 +65,7 @@ function PointCheck_Mark(mark_title, mark_img, mark_num){
   let rslt = 0;
   
   if(mark_num == 10){
-    if(d < checkCircle[mark_num].r){
+    if(d < (checkCircle[mark_num].r + 5)){
       rslt = 1;
       alert("サバンナ2");
     }else if(checkDistance(pos.latitude, pos.longitude, checkCircle[0].lat, checkCircle[0].lng) < checkCircle[0].r){
@@ -75,7 +75,7 @@ function PointCheck_Mark(mark_title, mark_img, mark_num){
       rslt = 0;
       alert("サバンナ０");
   }}else{
-    if(d < checkCircle[mark_num].r){
+    if(d < (checkCircle[mark_num].r + 5)){
       rslt = 1;
     }else{
       rslt = 0;
@@ -201,7 +201,7 @@ function PointCheck(pos){
     if(cp_f == 0){
       for(var i=0; i<CL; i++){
         let d = checkDistance(pos.latitude, pos.longitude, checkCircle[i].lat, checkCircle[i].lng);
-          if(d < checkCircle[i].r){
+          if(d < (checkCircle[i].r + 5)){
             if(i == 0){ cp_num = 10; }else{ cp_num = i; 
               }alert("i=" + i +" cp_num=" + cp_num +" cp_f=" + cp_f + "inTime" +inTime);
             inTime ++;
@@ -210,7 +210,7 @@ function PointCheck(pos){
   }}else{    //内側
     let d = checkDistance(pos.latitude, pos.longitude, checkCircle[cp_num].lat, checkCircle[cp_num].lng);
     //alert("ok!"+"\n"+" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime" +inTime);
-      if(d < checkCircle[cp_num].r){
+      if(d < (checkCircle[cp_num].r + 5)){
         //alert("ok"+"\n"+" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime" +inTime);
         inTime ++;
       }else{  //出たとき
