@@ -198,7 +198,6 @@ var inTime = 0;
 /*---------- 定期取得時のチェックポイント判別 ----------*/
 function PointCheck(pos){
   alert("PointCheck.");
-  //var i = 0;
     if(cp_f == 0){
       for(var i=0; i<CL; i++){
         let d = checkDistance(pos.latitude, pos.longitude, checkCircle[i].lat, checkCircle[i].lng);
@@ -210,9 +209,9 @@ function PointCheck(pos){
           }else{}
   }}else{    //内側
     let d = checkDistance(pos.latitude, pos.longitude, checkCircle[cp_num].lat, checkCircle[cp_num].lng);
-    alert("ok!"+"\n"+" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime" +inTime);
+    //alert("ok!"+"\n"+" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime" +inTime);
       if(d < checkCircle[cp_num].r){
-        alert("ok"+"\n"+" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime" +inTime);
+        //alert("ok"+"\n"+" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime" +inTime);
         inTime ++;
       }else{  //出たとき
         //LSに番号、滞在・アウト時間、操作保存
@@ -221,7 +220,7 @@ function PointCheck(pos){
         + "inTime:" + inTime);
         inTime = 0;
         cp_f = 0;
-  }}
+  }}alert("ok!"+"\n"+" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime" +inTime);
 }
 
 function PointCheck_Fixed(){
@@ -230,13 +229,13 @@ function PointCheck_Fixed(){
 
 /*---------- 定期的に位置情報を取得＆Localstrageに格納 ----------*/
 function StockPosition(){
-  var data = {latitude: 34.01432, longitude: 134.52191};
+  var pos = getPosition();
   if(stock_f == 0){
     position_timer = setInterval(function(){
       //if(cp_f == 0){
         alert("stock position.");
         //PointCheck(getPosition());
-        PointCheck(data);
+        PointCheck(pos);
       //LSに格納する型
       //{チェックポイントNo, チェックイン時間, 滞在時間}
       //DataToLS = {};
