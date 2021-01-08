@@ -14,7 +14,6 @@ var test_i2 = 0;
 //↓{secure:true}があるとhttp通信だとできない？(12/09 解決)
 $.cookie('markerData', JSON.stringify(markerData), {secure:true});
 
-
 "use strict";
 
 window.onload = () =>{
@@ -39,10 +38,8 @@ function AnimalInformation(mark_title, mark_img, mark_num, rslt){
   }
   img.src = mark_img;
   document.getElementById("text_title").innerHTML = geo_text1;   
-  document.getElementById("text_ae").innerHTML = geo_text2;   
-  alert("AnimalInformation");
+  document.getElementById("text_ae").innerHTML = geo_text2;
 }
-
 
 /*----- 現在地とチェックポイントとの距離測定 -----*/
 function checkDistance(lat1, lng1, lat2, lng2){
@@ -61,7 +58,6 @@ function PointCheck_Mark(mark_title, mark_img, mark_num){
   let pos = getPosition();
   //let pos = {latitude: 34.01520, longitude: 134.52230};
   let d = checkDistance(pos.latitude, pos.longitude, cp_lat, cp_lng);
-  //var d = 10
   let rslt = 0;
   
   if(mark_num == 10){
@@ -79,7 +75,7 @@ function PointCheck_Mark(mark_title, mark_img, mark_num){
       rslt = 1;
     }else{
       rslt = 0;
-  }}  //alert("rslt = " + rslt + "\n" + mark_num + "\n" + d);
+  }}
   AnimalInformation(mark_title, mark_img, mark_num, rslt);
 }
 
@@ -167,12 +163,10 @@ function getPosition(){
       let mark = {
         latitude: position.coords.latitude,
         longitude: position.coords.longitude,
-        //↓わかりやすく変換
         timestamp: position.timestamp
       };
-      //各項目で変数に入れなおす？
       Mark = mark;
-    }());}, error, option);   //alert("return Mark = " + Object.values(Mark));
+    }());}, error, option);
   return Mark;
 }
 
@@ -221,9 +215,6 @@ function PointCheck(pos){
         alert("Now out."+"\n"+"cp_num:" + cp_num + " cp_f:" + cp_f + " inTime:" + inTime);
 }}}
 
-function PointCheck_Fixed(){
-
-}
 
 /*---------- 定期的に位置情報を取得＆Localstrageに格納 ----------*/
 function StockPosition(){
@@ -270,10 +261,10 @@ function ShowPosition(){
       title: "Present Location",
       animation: google.maps.Animation.DROP,
       visible: true
-    });    //alert("ShowPosition" + "\n" + "mark：" + Object.values(mark));
+    });
     marker.setMap(map);
     infoWindow = new google.maps.InfoWindow({
-      content: '<div class="marker_info">現在位置</div>'  //+ '<img src = "/media/pic1.png" width="100" height="100"　alt="写真">'
+      content: '<div class="marker_info">現在位置</div>'
     });infoWindow.open(map, marker);
     marker.addListener('click', function(){
       infoWindow.open(map, marker);
@@ -281,7 +272,7 @@ function ShowPosition(){
   }else{
     posi_f = 0;
     marker.setMap(null);    //マーカーを非表示にする
-  }//alert("posi_f=" + posi_f);
+  }
 }
 
 
