@@ -7,14 +7,14 @@
 /*マップ*/
 .map_group{
   position: fixed;
-  height: 400px;    width: 100%;
+  height: 230px;    width: 100%;
   max-width: 100%;
   top: 0px;         left: 0px;
   z-index: 100;
 }
 #map{
   position: fixed;
-  height: 400px;    width: 100%;
+  height: 230px;    width: 100%;
   top: 0px;         left: 0px;
 }
 
@@ -128,14 +128,14 @@ nav.globalMenu.active{
 .text_group{
   position: relative;
   height: 1000px;      width:  100%;
-  top:    250px;      left:   0px;
+  top:    230px;      left:   0px;
   z-index: 10;
 }
 #text_title{
   position: sticky;
   background: white;
   height: 25px;      width:  100%;
-  top: 250px;           left: 0px;
+  top: 230px;           left: 0px;
   padding: 11px 0;
   z-index: 10;
 }
