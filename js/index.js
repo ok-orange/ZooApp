@@ -291,7 +291,7 @@ function ShowPosition(){
 
 /*---------- Google FormsのURLにデータをつける ----------*/
 function PlusURL(){
-  alert("Plus URL.");
+  alert("ご利用ありがとうございました！"+"\n"+"最後に数分だけ、アンケートへご協力をお願いします。");
   return "aiM1PahW2fWihPdX6";
 }
 
