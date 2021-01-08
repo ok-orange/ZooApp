@@ -198,30 +198,28 @@ var inTime = 0;
 /*---------- 定期取得時のチェックポイント判別 ----------*/
 function PointCheck(pos){
   alert("PointCheck.");
-    if(cp_f == 0){
-      for(var i=0; i<CL; i++){
-        let d = checkDistance(pos.latitude, pos.longitude, checkCircle[i].lat, checkCircle[i].lng);
-          if(d < (checkCircle[i].r + 10)){
-            if(i == 0){ cp_num = 10; }else{ cp_num = i; 
-              }alert("i=" + i +" cp_num=" + cp_num +" cp_f=" + cp_f + "inTime" +inTime);
-            inTime ++;
-            cp_f = 1;
-          }else{}
+  if(cp_f == 0){  //外側
+    for(var i=0; i<CL; i++){
+      let d = checkDistance(pos.latitude, pos.longitude, checkCircle[i].lat, checkCircle[i].lng);
+        if(d < (checkCircle[i].r + 10)){
+          if(i == 0){ cp_num = 10; }else{ cp_num = i; }
+          inTime ++;
+          cp_f = 1;
+          alert("out."+"\n"+"i=" + i +" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime" +inTime);
+        }else{}
+
   }}else{    //内側
     let d = checkDistance(pos.latitude, pos.longitude, checkCircle[cp_num].lat, checkCircle[cp_num].lng);
-    //alert("ok!"+"\n"+" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime" +inTime);
       if(d < (checkCircle[cp_num].r + 10)){
-        //alert("ok"+"\n"+" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime" +inTime);
         inTime ++;
+        alert("in!"+"\n"+" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime" +inTime);
       }else{  //出たとき
         //LSに番号、滞在・アウト時間、操作保存
         //localStorage.setItem('data',cp_num);
-        alert("cp_num:" + cp_num + "cp_f:" + cp_f + "\n"
-        + "inTime:" + inTime);
         inTime = 0;
         cp_f = 0;
-  }}alert("ok!"+"\n"+" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime" +inTime);
-}
+        alert("Now out."+"\n"+"cp_num:" + cp_num + " cp_f:" + cp_f + " inTime:" + inTime);
+}}}
 
 function PointCheck_Fixed(){
 
@@ -229,13 +227,11 @@ function PointCheck_Fixed(){
 
 /*---------- 定期的に位置情報を取得＆Localstrageに格納 ----------*/
 function StockPosition(){
-  var pos = getPosition();
+  var data = {latitude: 34.01432, longitude: 134.52191};
   if(stock_f == 0){
     position_timer = setInterval(function(){
-      //if(cp_f == 0){
-        alert("stock position.");
-        //PointCheck(getPosition());
-        PointCheck(pos);
+      alert("stock position.");
+      PointCheck(data);
       //LSに格納する型
       //{チェックポイントNo, チェックイン時間, 滞在時間}
       //DataToLS = {};
