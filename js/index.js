@@ -63,13 +63,10 @@ function PointCheck_Mark(mark_title, mark_img, mark_num){
   if(mark_num == 10){
     if(d < (checkCircle[mark_num].r + 10)){
       rslt = 1;
-      alert("サバンナ2");
     }else if(checkDistance(pos.latitude, pos.longitude, checkCircle[0].lat, checkCircle[0].lng) < checkCircle[0].r){
       rslt = 1;
-      alert("サバンナ1");
     }else{
       rslt = 0;
-      alert("サバンナ０");
   }}else{
     if(d < (checkCircle[mark_num].r + 10)){
       rslt = 1;
@@ -122,9 +119,6 @@ function initMap(){
         });
         marker_fixed.addListener('click', function(){
           infoWindow_fixed.open(map, marker_fixed);
-          //AnimalInformation(mark.title, mark.img, mark.num);
-          //チェックポイント判別
-          //PointCheck_Mark(mark.num);
           PointCheck_Mark(mark.title, mark.img, mark.num);
       });}
   }());}
@@ -172,16 +166,17 @@ function getPosition(){
 
 
 /*---------- LocalStrageにデータを格納 ----------*/
-function SaveData(data){
-  let LocationData = JSON.parse(localStorage.getItem('LocationData'));
-  if(LocationData == null){
-      LocationData = [];
-  }if(LocationData.length > 0){
-      LocationData = LocationData.length > 2880 ? LocationData.slice(-10) : LocationData;
-  }LocationData.push(data);
-  localStorage.setItem('LocationData', JSON.stringify(LocationData));
-  //alert("localstrage：" + Object.values(localStorage));
-  alert("Save Data.");
+function StockLS(data){
+  let Data = JSON.parse(localStorage.getItem('Data'));
+
+  if(Data == null){
+    Data = [];
+  }if(Data.length > 0){
+    Data = Data.length > 2880 ? Data.slice(-10) : Data;
+  }
+  Data.push(data);
+  localStorage.setItem('Data', JSON.stringify(Data));
+  alert("Save：" + JSON.parse(localStorage.getItem("Data")));
 }
 
 
@@ -191,41 +186,95 @@ var cp_num = 0;
 var inTime = 0;
 /*---------- 定期取得時のチェックポイント判別 ----------*/
 function PointCheck(pos){
-  alert("PointCheck.");
+  //alert("PointCheck.");
   if(cp_f == 0){  //外側
     for(var i=0; i<CL; i++){
-      let d = checkDistance(pos.latitude, pos.longitude, checkCircle[i].lat, checkCircle[i].lng);
-        if(d < (checkCircle[i].r + 10)){
-          if(i == 0){ cp_num = 10; }else{ cp_num = i; }
-          inTime ++;
-          cp_f = 1;
-          alert("out."+"\n"+"i=" + i +" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime" +inTime);
-        }else{}
-
-  }}else{    //内側
+      if(cp_f == 0){
+        let d = checkDistance(pos.latitude, pos.longitude, checkCircle[i].lat, checkCircle[i].lng);
+          if(d < (checkCircle[i].r + 10)){
+            if(i == 0){ cp_num = 10; }else{ cp_num = i; }
+            cp_f = 1;
+            alert("in."+"\n"+"i=" + i +" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime=" +inTime);
+          }else{
+            alert("out");
+      }}else{
+        alert("for out!");
+        break;
+      }
+    }
+  }else{    //内側
     let d = checkDistance(pos.latitude, pos.longitude, checkCircle[cp_num].lat, checkCircle[cp_num].lng);
-      if(d < (checkCircle[cp_num].r + 10)){
-        inTime ++;
-        alert("in!"+"\n"+" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime" +inTime);
-      }else{  //出たとき
-        //LSに番号、滞在・アウト時間、操作保存
-        //localStorage.setItem('data',cp_num);
-        inTime = 0;
-        cp_f = 0;
-        alert("Now out."+"\n"+"cp_num:" + cp_num + " cp_f:" + cp_f + " inTime:" + inTime);
+    if(d < (checkCircle[cp_num].r + 10)){
+      inTime ++;
+      alert("in!"+"\n"+" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime" +inTime);
+    }else{  //出たとき
+      //LSに格納：{チェックポイントNo, アウト・滞在時間、操作->紹介機能フラグ？}
+      let outTime = pos.timestamp;
+      let DataToLS = {cp_num, inTime, outTime};
+      StockLS(DataToLS);
+      alert("Now out."+"\n"+"cp_num:" + cp_num + " cp_f:" + cp_f + " inTime:" + inTime);
+      inTime = 0;
+      cp_f = 0;
 }}}
 
 
-/*---------- 定期的に位置情報を取得＆Localstrageに格納 ----------*/
+var move_i = 0;
+/*----- チェックポイントテスト用 -----*/
+function move(){
+  let mark;
+  if(move_i == 0){    //外
+    mark = {
+      latitude: 34.01535,
+      longitude: 134.52100,
+      //timestamp: position.timestamp   
+    };
+  }else if(move_i == 1){    //とり
+    mark = {
+      latitude: 34.01531,
+      longitude: 134.52138,
+      //timestamp: position.timestamp   
+    };
+  }else if(move_i == 2){    //とり
+    mark = {
+      latitude: 34.01531,
+      longitude: 134.52138,
+      //timestamp: position.timestamp   
+    };
+  }else if(move_i == 3){    //外：サバンナ近く
+    mark = {
+      latitude: 34.01531,
+      longitude: 134.52230,
+      //timestamp: position.timestamp   
+    };
+  }else if(move_i == 4){    //外：サバンナ近く
+    mark = {
+      latitude: 34.01531,
+      longitude: 134.52230,
+      //timestamp: position.timestamp   
+    };
+  }else if(move_i == 5){    //サバンナ２
+    mark = {
+      latitude: 34.01540,
+      longitude: 134.52260,
+      //timestamp: position.timestamp   
+    };
+    move_i = -1;
+  }
+  alert("move from "+move_i);
+  move_i ++;
+  return mark;
+}
+
+
+/*---------- 定期的に位置情報を取得→ポイント内：Localstrageに格納 ----------*/
 function StockPosition(){
-  var data = {latitude: 34.01432, longitude: 134.52191};
+  //var data = {latitude: 34.01432, longitude: 134.52191};
+  var data;
   if(stock_f == 0){
     position_timer = setInterval(function(){
-      alert("stock position.");
+      //data = getPosition();
+      data = move();
       PointCheck(data);
-      //LSに格納する型
-      //{チェックポイントNo, チェックイン時間, 滞在時間}
-      //DataToLS = {};
     }, 5000);  stock_f = 1;
   }else{
 }}
@@ -234,7 +283,7 @@ function StockPosition(){
 /*---------- LocalStrageのPOST(確認用) ----------*/
 function SendLS(){
   let data = getPosition();
-  SaveData(data);
+  StockLS(data);
   alert("StockPosition-Mark : " + Object.values(data));
   SendData(localStorage);
   alert("Object.values(localStorage) = " + Object.values(localStorage) + "\n" + "localStrage.length = " + Object.keys(localStorage).length);
@@ -244,6 +293,7 @@ function SendLS(){
 /*---------- 位置情報の取得停止 ----------*/
 function StopGetPosition(){
   clearInterval(position_timer);
+  stock_f = 0;
   //SendLS(FormsのURLに乗せるデータ);
 }
 
