@@ -326,10 +326,23 @@ function ShowPosition(){
 }
 
 
-/*---------- Google FormsのURLにデータをつける ----------*/
+/*---------- LocalStrageのデータを文字列に変換 ----------*/
+function AddUrlData(){
+  var data = localStorage.getItem('Data');
+  alert(data);
+  return data;
+}
+/*---------- Google FormsのURLにデータを付加 ----------*/
 function PlusURL(){
   alert("ご利用ありがとうございました！"+"\n"+"最後に数分だけ、アンケートへご協力をお願いします。");
-  return "aiM1PahW2fWihPdX6";
+  var plusData = "「送信」ボタンを押してください。　　　";
+  var data = localStorage.getItem('Data');
+  if(data == null){
+  }else{
+    plusData += data;
+  }
+  alert("plusData： " + plusData);
+  return plusData;
 }
 
 
