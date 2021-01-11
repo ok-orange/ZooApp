@@ -271,6 +271,7 @@ function StockPosition(){
   var data;
   if(stock_f == 0){
     position_timer = setInterval(function(){
+      // ↓ 本番
       //data = getPosition();
       data = move();
       PointCheck(data);
@@ -283,7 +284,6 @@ function StockPosition(){
 function StopGetPosition(){
   clearInterval(position_timer);
   stock_f = 0;
-  //SendLS(FormsのURLに乗せるデータ);
 }
 
 
