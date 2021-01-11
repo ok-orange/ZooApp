@@ -19,20 +19,6 @@
 }
 
 
-/*ボタン　→　後でメニューバーに格納*
-.button_group{
-  position: fixed;
-  height: 25px;    width: 100%;
-  top: 210px;       left: 0px;
-  z-index: 100;
-}
-#button_map{
-  position: fixed;
-  height: 25px;    width: 100%;
-  top: 0px;       left: 0px;
-}
-
-
 /* ハンバーガーボタン */
 .hamburger{
   display: block;
@@ -85,7 +71,7 @@ nav.globalMenu{
   position: fixed;
   z-index: 100;
   bottom: 8%;
-  left: 70%;
+  left: 0%;
   color: #000;
   background: #ddd;
   text-align: left;
