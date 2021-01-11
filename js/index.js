@@ -194,7 +194,7 @@ function PointCheck(pos){
           if(d < (checkCircle[i].r + 10)){
             if(i == 0){ cp_num = 10; }else{ cp_num = i; }
             cp_f = 1;
-            alert("in."+"\n"+"i=" + i +" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime=" +inTime);
+            alert("cp_f:"+cp_f+"\n"+"cp_num=:"+cp_num +"  inTime: "+inTime);
           }else{
             alert("out");
       }}else{
@@ -206,16 +206,16 @@ function PointCheck(pos){
     let d = checkDistance(pos.latitude, pos.longitude, checkCircle[cp_num].lat, checkCircle[cp_num].lng);
     if(d < (checkCircle[cp_num].r + 10)){
       inTime ++;
-      alert("in!"+"\n"+" cp_num=" + cp_num +" cp_f=" + cp_f + " inTime" +inTime);
     }else{  //出たとき
       //LSに格納：{チェックポイントNo, アウト・滞在時間、操作->紹介機能フラグ？}
       let outTime = pos.timestamp;
       let DataToLS = {cp_num, inTime, outTime};
       StockLS(DataToLS);
-      alert("Now out."+"\n"+"cp_num:" + cp_num + " cp_f:" + cp_f + " inTime:" + inTime);
       inTime = 0;
       cp_f = 0;
-}}}
+    }
+  alert("cp_f: "+cp_f+"\n"+"cp_num: "+cp_num+"  inTime: "+inTime);
+}}
 
 
 var move_i = 0;
@@ -260,7 +260,7 @@ function move(){
     };
     move_i = -1;
   }
-  alert("move from "+move_i);
+  //alert("move from "+move_i);
   move_i ++;
   return mark;
 }
@@ -268,7 +268,6 @@ function move(){
 
 /*---------- 定期的に位置情報を取得→ポイント内：Localstrageに格納 ----------*/
 function StockPosition(){
-  //var data = {latitude: 34.01432, longitude: 134.52191};
   var data;
   if(stock_f == 0){
     position_timer = setInterval(function(){
@@ -278,16 +277,6 @@ function StockPosition(){
     }, 5000);  stock_f = 1;
   }else{
 }}
-
-
-/*---------- LocalStrageのPOST(確認用) ----------*/
-function SendLS(){
-  let data = getPosition();
-  StockLS(data);
-  alert("StockPosition-Mark : " + Object.values(data));
-  SendData(localStorage);
-  alert("Object.values(localStorage) = " + Object.values(localStorage) + "\n" + "localStrage.length = " + Object.keys(localStorage).length);
-}
 
 
 /*---------- 位置情報の取得停止 ----------*/
@@ -326,12 +315,6 @@ function ShowPosition(){
 }
 
 
-/*---------- LocalStrageのデータを文字列に変換 ----------*/
-function AddUrlData(){
-  var data = localStorage.getItem('Data');
-  alert(data);
-  return data;
-}
 /*---------- Google FormsのURLにデータを付加 ----------*/
 function PlusURL(){
   alert("ご利用ありがとうございました！"+"\n"+"最後に数分だけ、アンケートへご協力をお願いします。");
@@ -341,7 +324,7 @@ function PlusURL(){
   }else{
     plusData += data;
   }
-  alert("plusData： " + plusData);
+  alert("plusData： "+plusData);
   return plusData;
 }
 
