@@ -273,7 +273,7 @@ function StockPosition(){
       //data = getPosition();
       //data = move();
       //PointCheck(data);
-      getPoaition();
+      getPosition();
     }, 5000);  stock_f = 1;
   }else{
 }}
