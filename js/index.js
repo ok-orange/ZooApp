@@ -194,9 +194,9 @@ function PointCheck(pos){
             cp_f = 1;
             alert("cp_f:"+cp_f+"\n"+"cp_num=:"+cp_num +"  inTime: "+inTime);
           }else{
-            alert("out");
+            //alert("out");
       }}else{
-        alert("for out!");
+        //alert("for out!");
         break;
       }
     }
