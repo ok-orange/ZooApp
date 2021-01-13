@@ -5,8 +5,8 @@ var stock_f = 0;    //Intervalを１度だけ使うフラグ
 var position_timer;
 var posi_f = 0;
 var check_circle;
-var test_i = 0;
-var test_i2 = 0;
+//var test_i = 0;
+//var test_i2 = 0;
 
 $.cookie('markerData', JSON.stringify(markerData), {secure:true});
 
@@ -160,7 +160,7 @@ function getPosition(){
       PointCheck(Mark);
     }());}, error, option);
   //⇓
-  return Mark;
+  //return Mark;
 }
 
 
@@ -175,7 +175,7 @@ function StockLS(data){
   }
   Data.push(data);
   localStorage.setItem('Data', JSON.stringify(Data));
-  alert("Save：" + JSON.parse(localStorage.getItem("Data")));
+  alert("StockLS：" + localStorage.getItem("Data"));
 }
 
 
@@ -212,7 +212,7 @@ function PointCheck(pos){
       inTime = 0;
       cp_f = 0;
     }
-  alert("cp_f: "+cp_f+"\n"+"cp_num: "+cp_num+"  inTime: "+inTime);
+  alert("cp_f: "+cp_f+"\n"+"cp_num: "+cp_num+"  inTime: "+inTime+"  outTime: "+outTime);
 }}
 
 
@@ -266,7 +266,7 @@ function move(){
 
 /*---------- 定期的に位置情報を取得→ポイント内：Localstrageに格納 ----------*/
 function StockPosition(){
-  var data;
+  //var data;
   if(stock_f == 0){
     position_timer = setInterval(function(){
       // ↓ 本番、getPositionでMark入るので返り値なし
