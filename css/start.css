@@ -1,0 +1,14 @@
+*{ /*初期化*/
+    margin:0px;     padding:0px;
+}
+
+.body{
+  position: fixed;
+  height: 100%;    width: 100%;
+  top: 0px;         left: 0px;
+}
+#body_text{
+  position: fixed;
+  height: 100%;    width: 100%;
+  top: 10px;         left: 0px;
+}
