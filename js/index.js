@@ -55,6 +55,7 @@ function checkDistance(lat1, lng1, lat2, lng2){
 function PointCheck_Mark(mark_title, mark_img, mark_num){
   let cp_lat = checkCircle[mark_num].lat;
   let cp_lng = checkCircle[mark_num].lng;
+  //⇓pos=Markに
   let pos = getPosition();
   //let pos = {latitude: 34.01520, longitude: 134.52230};
   let d = checkDistance(pos.latitude, pos.longitude, cp_lat, cp_lng);
@@ -271,9 +272,10 @@ function StockPosition(){
   var data;
   if(stock_f == 0){
     position_timer = setInterval(function(){
-      // ↓ 本番
+      // ↓ 本番、getPositionでMark入るので返り値なし
       //data = getPosition();
       data = move();
+      
       PointCheck(data);
     }, 5000);  stock_f = 1;
   }else{
@@ -293,6 +295,7 @@ var marker;
 function ShowPosition(){
   if(posi_f == 0){
     posi_f = 1;
+    //⇓Markに
     mark = getPosition(); 
     marker = new google.maps.Marker({
       position: {lat: mark.latitude, lng: mark.longitude},
