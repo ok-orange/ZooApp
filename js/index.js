@@ -4,14 +4,10 @@ var Mark;
 var stock_f = 0;    //Intervalを１度だけ使うフラグ
 var position_timer;
 var posi_f = 0;
-var mesh_f = 0;
-var mesh_num = 0;
-var check_rectangle;
 var check_circle;
 var test_i = 0;
 var test_i2 = 0;
 
-//↓{secure:true}があるとhttp通信だとできない？(12/09 解決)
 $.cookie('markerData', JSON.stringify(markerData), {secure:true});
 
 "use strict";
@@ -28,7 +24,7 @@ window.onload = () =>{
 
 //チェックポイント判別で表示・非表示
 function AnimalInformation(mark_title, mark_img, mark_num, rslt){
-  var geo_text1 = "<h1>" + mark_title +"<\h1>";   //var geo_text2 = "<h3>" +  AnimalExplain(mark_num) + "<\h3>";
+  var geo_text1 = "<h1>" + mark_title +"<\h1>";
   var img = document.getElementById("text_img");
   
   if(rslt == 1){
@@ -41,9 +37,9 @@ function AnimalInformation(mark_title, mark_img, mark_num, rslt){
   document.getElementById("text_ae").innerHTML = geo_text2;
 }
 
+
 /*----- 現在地とチェックポイントとの距離測定 -----*/
 function checkDistance(lat1, lng1, lat2, lng2){
-  //誤差 1m 程！！(比：Google Map)
   lat1 *= Math.PI / 180;
   lng1 *= Math.PI / 180;
   lat2 *= Math.PI / 180;
@@ -51,25 +47,25 @@ function checkDistance(lat1, lng1, lat2, lng2){
   let m = 6371000 * Math.acos(Math.cos(lat1)*Math.cos(lat2)*Math.cos(lng2-lng1) + Math.sin(lat1)*Math.sin(lat2));
   return Math.floor(m * 10)/10;
 }
+
 /*----- チェックポイント判定 -----*/
 function PointCheck_Mark(mark_title, mark_img, mark_num){
   let cp_lat = checkCircle[mark_num].lat;
   let cp_lng = checkCircle[mark_num].lng;
-  //⇓pos=Markに
-  let pos = getPosition();
-  //let pos = {latitude: 34.01520, longitude: 134.52230};
+  //let pos = getPosition();
+  let pos = Mark;
   let d = checkDistance(pos.latitude, pos.longitude, cp_lat, cp_lng);
   let rslt = 0;
   
   if(mark_num == 10){
-    if(d < (checkCircle[mark_num].r + 10)){
+    if(d < (checkCircle[mark_num].r)){
       rslt = 1;
     }else if(checkDistance(pos.latitude, pos.longitude, checkCircle[0].lat, checkCircle[0].lng) < checkCircle[0].r){
       rslt = 1;
     }else{
       rslt = 0;
   }}else{
-    if(d < (checkCircle[mark_num].r + 10)){
+    if(d < (checkCircle[mark_num].r)){
       rslt = 1;
     }else{
       rslt = 0;
@@ -82,7 +78,7 @@ function PointCheck_Mark(mark_title, mark_img, mark_num){
 function initMap(){
   map = new google.maps.Map(document.getElementById("map"), {
         zoom: 17,
-        center: {lat: 34.0147, lng: 134.5208},
+        center: {lat: 34.01470, lng: 134.52080},
         mapTypeId: "satellite"
   });
 
@@ -161,7 +157,9 @@ function getPosition(){
         timestamp: position.timestamp
       };
       Mark = mark;
+      PointCheck(Mark);
     }());}, error, option);
+  //⇓
   return Mark;
 }
 
@@ -187,12 +185,11 @@ var cp_num = 0;
 var inTime = 0;
 /*---------- 定期取得時のチェックポイント判別 ----------*/
 function PointCheck(pos){
-  //alert("PointCheck.");
   if(cp_f == 0){  //外側
     for(var i=0; i<CL; i++){
       if(cp_f == 0){
         let d = checkDistance(pos.latitude, pos.longitude, checkCircle[i].lat, checkCircle[i].lng);
-          if(d < (checkCircle[i].r + 10)){
+          if(d < (checkCircle[i].r)){
             if(i == 0){ cp_num = 10; }else{ cp_num = i; }
             cp_f = 1;
             alert("cp_f:"+cp_f+"\n"+"cp_num=:"+cp_num +"  inTime: "+inTime);
@@ -205,10 +202,10 @@ function PointCheck(pos){
     }
   }else{    //内側
     let d = checkDistance(pos.latitude, pos.longitude, checkCircle[cp_num].lat, checkCircle[cp_num].lng);
-    if(d < (checkCircle[cp_num].r + 10)){
+    if(d < (checkCircle[cp_num].r)){
       inTime ++;
     }else{  //出たとき
-      //LSに格納：{チェックポイントNo, アウト・滞在時間、操作->紹介機能フラグ？}
+      //DataToLS:{チェックポイント,滞在時間,アウト時間,操作}
       let outTime = pos.timestamp;
       let DataToLS = {cp_num, inTime, outTime};
       StockLS(DataToLS);
@@ -274,9 +271,9 @@ function StockPosition(){
     position_timer = setInterval(function(){
       // ↓ 本番、getPositionでMark入るので返り値なし
       //data = getPosition();
-      data = move();
-      
-      PointCheck(data);
+      //data = move();
+      //PointCheck(data);
+      getPoaition();
     }, 5000);  stock_f = 1;
   }else{
 }}
@@ -295,8 +292,8 @@ var marker;
 function ShowPosition(){
   if(posi_f == 0){
     posi_f = 1;
-    //⇓Markに
-    mark = getPosition(); 
+    //mark = getPosition(); 
+    mark = Mark;
     marker = new google.maps.Marker({
       position: {lat: mark.latitude, lng: mark.longitude},
       map: map,
