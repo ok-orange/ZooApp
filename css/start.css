@@ -10,8 +10,8 @@
 #body_text{
   position: fixed;
   height: 100%;    width: 100%;
-  top: 35%;         left: 30%;
-  font-size: 5.0rem;
+  top: 35%;         left: 10%;
+  font-size: 3.0rem;
 }
 
 a.start_button{
