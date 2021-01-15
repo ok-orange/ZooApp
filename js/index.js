@@ -5,6 +5,7 @@ var stock_f = 0;    //Intervalを１度だけ使うフラグ
 var position_timer;
 var posi_f = 0;
 var check_circle;
+var sousa=[];     //操作回数を格納
 //var test_i = 0;
 //var test_i2 = 0;
 
@@ -15,6 +16,9 @@ $.cookie('markerData', JSON.stringify(markerData), {secure:true});
 window.onload = () =>{
   getPosition();    //最初に現在位置を取得しておく
   initMap();
+  for(var i=0; i<markerData.length; i++){
+    sousa[i] = 0;
+  } 
 }
 
 /*---------- メインの関数 --------------------------------------------------------------
@@ -23,11 +27,11 @@ window.onload = () =>{
 -------------------------------------------------------------------------------------*/
 
 //チェックポイント判別で表示・非表示
-function AnimalInformation(mark_title, mark_img, mark_num, rslt){
+function AnimalInformation(mark_title, mark_img, mark_num, s){
   var geo_text1 = "<h1>" + mark_title +"<\h1>";
   var img = document.getElementById("text_img");
   
-  if(rslt == 1){
+  if(s > 0){
     var geo_text2 = AnimalData[mark_num];
   }else{
     var geo_text2 = "<h4>動物の近くに行くと、情報が見られるようになるよ。"+"<br>"+mark_title+"を見に行こう！<\h4>";
@@ -70,7 +74,12 @@ function PointCheck_Mark(mark_title, mark_img, mark_num){
     }else{
       rslt = 0;
   }}
-  AnimalInformation(mark_title, mark_img, mark_num, rslt);
+  
+  if(rslt == 1){
+    sousa[mark_num] += 1;
+    alert("sousa["+mark_num+"]= "+sousa[mark_num]);
+  }else{}
+  AnimalInformation(mark_title, mark_img, mark_num, sousa[mark_num]);
 }
 
 
@@ -140,7 +149,9 @@ var error = function (error) {
     '<td>' + error.message + '</td>' +
     '</tr>';
   console.error(result);
-};
+  if(error.code == 1){
+    alert("位置情報をオンにしてください。");
+}};
 var option = {
   enableHighAccuracy: true,
   timeout : 10000,
@@ -159,7 +170,6 @@ function getPosition(){
       Mark = mark;
       PointCheck(Mark);
     }());}, error, option);
-  //⇓
   //return Mark;
 }
 
@@ -192,7 +202,7 @@ function PointCheck(pos){
           if(d < (checkCircle[i].r)){
             if(i == 0){ cp_num = 10; }else{ cp_num = i; }
             cp_f = 1;
-            alert("cp_f:"+cp_f+"\n"+"cp_num=:"+cp_num +"  inTime: "+inTime);
+            alert("Now in!"+"\n"+"cp_f:"+cp_f+"\n"+"cp_num=:"+cp_num +"  inTime: "+inTime);
           }else{
             //alert("out");
       }}else{
@@ -211,13 +221,14 @@ function PointCheck(pos){
       StockLS(DataToLS);
       inTime = 0;
       cp_f = 0;
+      alert("Now out!"+"\n"+"cp_f: "+cp_f+"\n"+"cp_num: "+cp_num+"  inTime: "+inTime+"  outTime: "+outTime);
     }
-  alert("cp_f: "+cp_f+"\n"+"cp_num: "+cp_num+"  inTime: "+inTime+"  outTime: "+outTime);
+  //alert("cp_f: "+cp_f+"\n"+"cp_num: "+cp_num+"  inTime: "+inTime+"  outTime: "+outTime);
 }}
 
 
 var move_i = 0;
-/*----- チェックポイントテスト用 -----*/
+/*----- チェックポイントテスト用 -----
 function move(){
   let mark;
   if(move_i == 0){    //外
@@ -262,6 +273,7 @@ function move(){
   move_i ++;
   return mark;
 }
+*/
 
 
 /*---------- 定期的に位置情報を取得→ポイント内：Localstrageに格納 ----------*/
@@ -270,7 +282,6 @@ function StockPosition(){
   if(stock_f == 0){
     position_timer = setInterval(function(){
       // ↓ 本番、getPositionでMark入るので返り値なし
-      //data = getPosition();
       //data = move();
       //PointCheck(data);
       getPosition();
@@ -292,7 +303,6 @@ var marker;
 function ShowPosition(){
   if(posi_f == 0){
     posi_f = 1;
-    //mark = getPosition(); 
     mark = Mark;
     marker = new google.maps.Marker({
       position: {lat: mark.latitude, lng: mark.longitude},
