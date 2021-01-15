@@ -226,7 +226,7 @@ function PointCheck(pos){
   //alert("cp_f: "+cp_f+"\n"+"cp_num: "+cp_num+"  inTime: "+inTime+"  outTime: "+outTime);
 }}
 
-
+/*
 var move_i = 0;
 /*----- チェックポイントテスト用 -----
 function move(){
@@ -236,32 +236,27 @@ function move(){
       latitude: 34.01535,
       longitude: 134.52100,
       //timestamp: position.timestamp   
-    };
-  }else if(move_i == 1){    //とり
+  };}else if(move_i == 1){    //とり
     mark = {
       latitude: 34.01531,
       longitude: 134.52138,
       //timestamp: position.timestamp   
-    };
-  }else if(move_i == 2){    //とり
+  };}else if(move_i == 2){    //とり
     mark = {
       latitude: 34.01531,
       longitude: 134.52138,
       //timestamp: position.timestamp   
-    };
-  }else if(move_i == 3){    //外：サバンナ近く
+  };}else if(move_i == 3){    //外：サバンナ近く
     mark = {
       latitude: 34.01531,
       longitude: 134.52230,
       //timestamp: position.timestamp   
-    };
-  }else if(move_i == 4){    //外：サバンナ近く
+  };}else if(move_i == 4){    //外：サバンナ近く
     mark = {
       latitude: 34.01531,
       longitude: 134.52230,
       //timestamp: position.timestamp   
-    };
-  }else if(move_i == 5){    //サバンナ２
+  };}else if(move_i == 5){    //サバンナ２
     mark = {
       latitude: 34.01540,
       longitude: 134.52260,
@@ -269,11 +264,9 @@ function move(){
     };
     move_i = -1;
   }
-  //alert("move from "+move_i);
   move_i ++;
   return mark;
-}
-*/
+}*/
 
 
 /*---------- 定期的に位置情報を取得→ポイント内：Localstrageに格納 ----------*/
@@ -321,8 +314,7 @@ function ShowPosition(){
   }else{
     posi_f = 0;
     marker.setMap(null);    //マーカーを非表示にする
-  }
-}
+}}
 
 
 /*---------- Google FormsのURLにデータを付加 ----------*/
