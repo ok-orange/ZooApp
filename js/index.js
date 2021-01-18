@@ -92,18 +92,6 @@ function initMap(){
         center: {lat: 34.01460, lng: 134.52115},
         mapTypeId: "satellite"
   });
-
-  /*----- チェックポイントの確認用(円) -----*/
-  for(const check_c of checkCircle){
-    (function(){
-      check_circle = new google.maps.Circle({
-        fillOpacity: 0.0,
-        strokeWeight: 0.8,
-        radius: check_c.r,
-        map: map,
-        center: {lat:check_c.lat, lng:check_c.lng}
-      });
-  }());}
   
   /*----- 動物マーカー -----*/
   const markerData = JSON.parse($.cookie('markerData'));
