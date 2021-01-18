@@ -16,7 +16,7 @@ $.cookie('markerData', JSON.stringify(markerData), {secure:true});
 window.onload = () =>{
   getPosition();    //最初に現在位置を取得しておく
   initMap();
-  for(var i=0; i<markerData.length; i++){
+  for(let i=0; i<markerData.length; i++){
     sousa[i] = 0;
   } 
 }
