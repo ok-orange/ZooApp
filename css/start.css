@@ -9,8 +9,8 @@
 }
 #body_text{
   position: fixed;
-  height: 100%;    width: 100%;
-  top: 35%;         left: 10%;
+  height: 100%;    width: 98%;
+  top: 35%;         left: 1%;
   font-size: 3.0rem;
 }
 
