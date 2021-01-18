@@ -135,13 +135,13 @@ nav.globalMenu.active{
   position: relative;
   text-align: justify;
   text-justify: auto;
-  height: 240px;      width:  98%;
-  top: 30px;           left: 1%;
+  height: 240px;      width:  96%;
+  top: 30px;           left: 2%;
   z-index: 0;
 }
 
 p{
   word-wrap: normal;
   font-size: medium;
-  font-family: "sans-serif";
+  font-family: "system-ui";
 }
