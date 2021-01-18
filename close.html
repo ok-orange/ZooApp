@@ -1,16 +1,28 @@
 <!DOCTYPE html>
-<!--{% load static %}-->
 <html lang="ja">
   <head>
+    <title>とくしまZooウォーカー</title>
     <meta charset="UTF-8">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
     <script src="js/data.js"></script>
     <script src="js/index.js"></script>
     <script src="js/animal_explain.js"></script>
-    <title>とくしまZooウォーカー</title>
+    <link rel="stylesheet" type="text/css" href="css/close.css">
   </head>
+  
   <body>
+    <div class = "body">
+      <pre id = "body_text">終了ボタンを押して終わる↓</pre>
+      <h5>アンケートのご協力をお願いします。(数分で終わる簡単なものです。)</h5>
+      <a href="#" class="btn start_button btn--cubic" onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSe52Pb93pcQZWDjdFliL9J0jzOZW3CpR98eUBtVhNcBLBMP8g/viewform?usp=pp_url&entry.1775630333='+PlusURL()">start!</a>
+    </div>
+    <!--
     <h3>終了ボタンを押して終わる↓</h3>
     <h5>アンケートのご協力をお願いします。(数分で終わる簡単なものです。)</h5>
     <button onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSe52Pb93pcQZWDjdFliL9J0jzOZW3CpR98eUBtVhNcBLBMP8g/viewform?usp=pp_url&entry.1775630333='+PlusURL()">終了</button>
+    -->
   </body>
 </html>
