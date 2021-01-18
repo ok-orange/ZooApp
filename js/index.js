@@ -89,7 +89,7 @@ function PointCheck_Mark(mark_title, mark_img, mark_num){
 function initMap(){
   map = new google.maps.Map(document.getElementById("map"), {
         zoom: 18,
-        center: {lat: 34.01470, lng: 134.52115},
+        center: {lat: 34.01460, lng: 134.52115},
         mapTypeId: "satellite"
   });
 
