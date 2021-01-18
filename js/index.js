@@ -6,11 +6,12 @@ var position_timer;
 var posi_f = 0;
 var check_circle;
 var sousa=[];     //操作回数を格納
-//var test_i = 0;
-//var test_i2 = 0;
+var b_f = 0;
+var t_f = 0;
+var bench=[];
+var toilet = [];
 
 $.cookie('markerData', JSON.stringify(markerData), {secure:true});
-
 "use strict";
 
 window.onload = () =>{
@@ -34,7 +35,9 @@ function AnimalInformation(mark_title, mark_img, mark_num, s){
   if(s > 0){
     var geo_text2 = AnimalData[mark_num];
   }else{
-    var geo_text2 = "<h4>動物の近くに行くと、情報が見られるようになるよ。"+"<br>"+mark_title+"を見に行こう！<\h4>";
+    //var geo_text2 = "<h4>動物の近くに行くと、情報が見られるようになるよ。"+"<br>"+mark_title+"を見に行こう！<\h4>";
+    //テスト用⇓
+    var geo_text2 = AnimalData[mark_num];
   }
   img.src = mark_img;
   document.getElementById("text_title").innerHTML = geo_text1;   
@@ -56,7 +59,6 @@ function checkDistance(lat1, lng1, lat2, lng2){
 function PointCheck_Mark(mark_title, mark_img, mark_num){
   let cp_lat = checkCircle[mark_num].lat;
   let cp_lng = checkCircle[mark_num].lng;
-  //let pos = getPosition();
   let pos = Mark;
   let d = checkDistance(pos.latitude, pos.longitude, cp_lat, cp_lng);
   let rslt = 0;
@@ -77,7 +79,7 @@ function PointCheck_Mark(mark_title, mark_img, mark_num){
   
   if(rslt == 1){
     sousa[mark_num] += 1;
-    alert("sousa["+mark_num+"]= "+sousa[mark_num]);
+    //alert("sousa["+mark_num+"]= "+sousa[mark_num]);
   }else{}
   AnimalInformation(mark_title, mark_img, mark_num, sousa[mark_num]);
 }
@@ -86,7 +88,7 @@ function PointCheck_Mark(mark_title, mark_img, mark_num){
 /////*-------------------- initMap() --------------------*/////
 function initMap(){
   map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 17,
+        zoom: 18,
         center: {lat: 34.01470, lng: 134.52080},
         mapTypeId: "satellite"
   });
@@ -170,7 +172,6 @@ function getPosition(){
       Mark = mark;
       PointCheck(Mark);
     }());}, error, option);
-  //return Mark;
 }
 
 
@@ -204,24 +205,21 @@ function PointCheck(pos){
             cp_f = 1;
             alert("Now in!"+"\n"+"cp_f:"+cp_f+"\n"+"cp_num=:"+cp_num +"  inTime: "+inTime);
           }else{
-            //alert("out");
       }}else{
-        //alert("for out!");
         break;
-      }
-    }
+    }}
   }else{    //内側
     let d = checkDistance(pos.latitude, pos.longitude, checkCircle[cp_num].lat, checkCircle[cp_num].lng);
     if(d < (checkCircle[cp_num].r)){
       inTime ++;
     }else{  //出たとき
-      //DataToLS:{チェックポイント,滞在時間,アウト時間,操作}
       let outTime = pos.timestamp;
-      let DataToLS = {cp_num, inTime, outTime};
+      let s = sousa[cp_num];
+      let DataToLS = {cp_num, inTime, outTime, s};
       StockLS(DataToLS);
       inTime = 0;
       cp_f = 0;
-      alert("Now out!"+"\n"+"cp_f: "+cp_f+"\n"+"cp_num: "+cp_num+"  inTime: "+inTime+"  outTime: "+outTime);
+      //alert("Now out!"+"\n"+"cp_f: "+cp_f+"\n"+"cp_num: "+cp_num+"  inTime: "+inTime+"  outTime: "+outTime);
     }
   //alert("cp_f: "+cp_f+"\n"+"cp_num: "+cp_num+"  inTime: "+inTime+"  outTime: "+outTime);
 }}
@@ -229,12 +227,8 @@ function PointCheck(pos){
 
 /*---------- 定期的に位置情報を取得→ポイント内：Localstrageに格納 ----------*/
 function StockPosition(){
-  //var data;
   if(stock_f == 0){
     position_timer = setInterval(function(){
-      // ↓ 本番、getPositionでMark入るので返り値なし
-      //data = move();
-      //PointCheck(data);
       getPosition();
     }, 3000);  stock_f = 1;
   }else{
@@ -272,6 +266,67 @@ function ShowPosition(){
   }else{
     posi_f = 0;
     marker.setMap(null);    //マーカーを非表示にする
+}}
+
+
+/*---------- ベンチマーカーの設置・消去 ---------*/
+function SetBench(){
+  for(let i=0; i<benchData.length; i++){
+    let bench_ = new google.maps.Marker({
+      position: benchData[i].pos,
+      num: benchData[i].num,
+      icon: {
+        url: "/media/bench2.png",
+        scaledSize: new google.maps.Size(18, 18)
+      },
+      map: map
+    });
+    bench.push(bench_);
+    bench[i].setMap(map);
+}}
+function ClearBench(){
+  for(let i=0; i<benchData.length; i++){
+    bench[i].setMap(null);
+  }bench = [];}
+
+/*---------- トイレマーカーの設置・消去 ---------*/
+function SetToilet(){
+  for(let i=0; i<toiletData.length; i++){
+    let toilet_ = new google.maps.Marker({
+      position: toiletData[i].pos,
+      num: toiletData[i].num,
+      icon: {
+        url: "/media/toilet3.png",
+        scaledSize: new google.maps.Size(18, 18)
+      },
+      map: map
+    });
+    toilet.push(toilet_);
+    toilet[i].setMap(map);
+}}
+function ClearToilet(){
+  for(let i=0; i<toiletData.length; i++){
+    toilet[i].setMap(null);
+  }toilet = [];}
+
+
+/*----- ベンチマーカーを表示・非表示 -----*/
+function ShowBench(){
+  if(b_f == 0){
+    SetBench();
+    b_f = 1;
+  }else{
+    ClearBench();
+    b_f = 0;
+}}
+/*----- トイレマーカーを表示・非表示 -----*/
+function ShowToilet(){
+  if(t_f == 0){
+    SetToilet();
+    t_f = 1;
+  }else{
+    ClearToilet();
+    t_f = 0;
 }}
 
 
