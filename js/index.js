@@ -276,7 +276,7 @@ function SetBench(){
       position: benchData[i].pos,
       num: benchData[i].num,
       icon: {
-        url: "/media/bench2.png",
+        url: "./pic/bench2.png",
         scaledSize: new google.maps.Size(18, 18)
       },
       map: map
@@ -296,7 +296,7 @@ function SetToilet(){
       position: toiletData[i].pos,
       num: toiletData[i].num,
       icon: {
-        url: "/media/toilet3.png",
+        url: "./pic//toilet3.png",
         scaledSize: new google.maps.Size(18, 18)
       },
       map: map
