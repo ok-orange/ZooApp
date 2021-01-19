@@ -91,7 +91,8 @@ function initMap(){
   map = new google.maps.Map(document.getElementById("map"), {
         zoom: 18,
         center: {lat: 34.01460, lng: 134.52115},
-        mapTypeId: "satellite"
+        mapTypeId: "satellite",
+        gestureHandling: 'greedy'
   });
   
   /*----- 動物マーカー -----*/
