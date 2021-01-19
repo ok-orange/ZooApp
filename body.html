@@ -2,8 +2,10 @@
 <html lang="ja">
 
 <head>
+  <title>とくしまZoo ウォーカー</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  
   <script src="https://maps.google.com/maps/api/js?key=AIzaSyDKi1IkG-kiEkIQNWV96_lxzxuOqZ4DEG8&libraries=&libraries=geometry&v=weekly&language=ja"></script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
@@ -15,16 +17,8 @@
   <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" user-scalable=no>   レスポンシブデザイン-->
 
   <script src="js/data.js"></script>
-  <script src="js/index.js"></script>
   <script src="js/animal_explain.js"></script>
-
-  <!--カメラのcanvas系？-->
-  <link rel="canonical" herf = "https://syncer.jp/Web/API_Interface/Reference/IDL/HTMLCanvasElement/toDataURL/">
-  <meta content="width = device-width, initial-scale = 1.0" name = "viewport">
-  <script src="https://demo.syncer.jp/js/demo-web_api_interface.js"></script>
-  <style media="screen"></style>
-
-  <title>とくしまZoo ウォーカー</title>
+  <script src="js/index.js"></script>  
 </head>
 
 
@@ -39,8 +33,6 @@
     <pre id = "text_title"></pre>
     <img id = "text_img"></pre>
     <p id = "text_ae"></p>
-    <!--<p>msg：{{msg}}</p>
-    <p>data：{{data}}</p>-->
   </div>
 
   <!-- ハンバーガーメニューボタン -->
@@ -56,7 +48,8 @@
       <li><a href="#" onclick="ShowToilet()">　トイレ</a></li>
       <li><a href="#" onclick="StockPosition()">　定期取得</a></li>
       <li><a href="#" onclick="StopGetPosition()">　取得停止</a></li>
-      <li><a href="close.html">　アプリを終了する</a></li>
+      <li><a href="#" onclick="HowToUse()">　つかいかた</a></li>
+      <li><a href="close.html" onclick="StopGetPosition()">　アプリを終了する</a></li>
     </ul>
   </nav>
 
