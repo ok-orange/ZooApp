@@ -28,16 +28,16 @@ window.onload = () =>{
 ・initMap()
 -------------------------------------------------------------------------------------*/
 
-//チェックポイント判別で表示・非表示
-function AnimalInformation(mark_title, mark_img, mark_num, s){
+/*----- 動物紹介の表示・非表示 -----*/
+function AnimalInformation(mark_title, mark_img, mark_num){
   var geo_text1 = "<h1>" + mark_title +"<\h1>";
   var img = document.getElementById("text_img");
+  let a = localStorage.getItem('sousa'+mark_num);
   
-  if(s > 0){
+  if(a == 1){
     var geo_text2 = AnimalData[mark_num];
   }else{
     //var geo_text2 = "<h4>動物の近くに行くと、情報が見られるようになるよ。"+"<br>"+mark_title+"を見に行こう！<\h4>";
-    //テスト用⇓
     var geo_text2 = AnimalData[mark_num];
   }
   img.src = mark_img;
@@ -62,7 +62,7 @@ function PointCheck_Mark(mark_title, mark_img, mark_num){
   let cp_lng = checkCircle[mark_num].lng;
   let pos = Mark;
   let d = checkDistance(pos.latitude, pos.longitude, cp_lat, cp_lng);
-  let rslt = 0;
+  let rslt = 0;   //チェックポイント内：１
   
   if(mark_num == 10){
     if(d < (checkCircle[mark_num].r)){
@@ -80,9 +80,26 @@ function PointCheck_Mark(mark_title, mark_img, mark_num){
   
   if(rslt == 1){
     sousa[mark_num] += 1;
-    //alert("sousa["+mark_num+"]= "+sousa[mark_num]);
+    //LSにフラグ保存
+    localStorage.setItem('sousa'+mark_num,'1');
   }else{}
-  AnimalInformation(mark_title, mark_img, mark_num, sousa[mark_num]);
+  AnimalInformation(mark_title, mark_img, mark_num);
+}
+
+
+/*---------- つかいかた ----------*/
+function HowToUse(){
+  let img = document.getElementById("text_img");
+  img.src = "";
+  document.getElementById("text_title").innerHTML
+    = "<h1>～つかいかた～</h1>";
+  document.getElementById("text_ae").innerHTML
+    = "<h2>・マップ</h2>"
+        + "<h3>どうぶつの近くで黄色い丸をタップすると、どうぶつの情報が見られるよ。</h3>"+"<br>"+"<br>"
+        + "<h2>・メニュー(右下の緑マーク)</h2>"
+        + "<h3>現在地・ベンチ・トイレの場所を、マップに表示・非表示にできるよ。</h3>"+"<br>"+"<br>"
+        + "<h2>・Webアプリを終了するとき</h2>"
+        + "<h3>メニュー１番下の「アプリを終了する」 ボタンを押してね！</h3>";
 }
 
 
@@ -96,7 +113,8 @@ function initMap(){
         mapTypeControl: false,    //地図・航空写真の切り替え
         fullscreenControl: false,   //全画面切り替え
         streetViewControl: false,    //ストリートビュー
-        zoomControl: false
+        //zoomControl: false
+        //rotateControl: false    //回転
   });
   
   /*----- 動物マーカー -----*/
@@ -128,6 +146,7 @@ function initMap(){
           currentInfoWindow = infoWindow_fixed;
       });}
   }());}
+  HowToUse();
 }
 
 
@@ -188,10 +207,21 @@ function StockLS(data){
 }
 
 
+/*---------- タイムスタンプの変換 ----------*/
+function AdjastTime(stamp){
+  const date = new Date(stamp);
+  const HH = date.getHours();
+  const mm = date.getMinutes();
+  const ss  =date.getSeconds();
+  const time = HH+":"+mm+":"+ss;
+  return time;
+}
+
+
 var CL = checkCircle.length;
 var cp_f = 0;
-var cp_num = 0;
-var inTime = 0;
+var cp_n = 0;
+var inT = 0;
 /*---------- 定期取得時のチェックポイント判別 ----------*/
 function PointCheck(pos){
   if(cp_f == 0){  //外側
@@ -199,27 +229,24 @@ function PointCheck(pos){
       if(cp_f == 0){
         let d = checkDistance(pos.latitude, pos.longitude, checkCircle[i].lat, checkCircle[i].lng);
           if(d < (checkCircle[i].r)){
-            if(i == 0){ cp_num = 10; }else{ cp_num = i; }
-            cp_f = 1;
-            alert("Now in!"+"\n"+"cp_f:"+cp_f+"\n"+"cp_num=:"+cp_num +"  inTime: "+inTime);
+            if(i == 0){ cp_n = 10; }else{ cp_n = i; }
+            cp_f = 1;   alert("Now in!"+"\n"+"cp_f:"+cp_f+"\n"+"cp_n=:"+cp_n +"  inT: "+inT);
           }else{
-      }}else{
-        break;
-    }}
-  }else{    //内側
-    let d = checkDistance(pos.latitude, pos.longitude, checkCircle[cp_num].lat, checkCircle[cp_num].lng);
-    if(d < (checkCircle[cp_num].r)){
-      inTime ++;
-    }else{  //出たとき
-      let outTime = pos.timestamp;
-      let s = sousa[cp_num];
-      let DataToLS = {cp_num, inTime, outTime, s};
-      StockLS(DataToLS);
-      inTime = 0;
-      cp_f = 0;
-      //alert("Now out!"+"\n"+"cp_f: "+cp_f+"\n"+"cp_num: "+cp_num+"  inTime: "+inTime+"  outTime: "+outTime);
+      }}else{   break;   }
     }
-  //alert("cp_f: "+cp_f+"\n"+"cp_num: "+cp_num+"  inTime: "+inTime+"  outTime: "+outTime);
+  }else{    //内側
+    let d = checkDistance(pos.latitude, pos.longitude, checkCircle[cp_n].lat, checkCircle[cp_n].lng);
+    if(d < (checkCircle[cp_n].r)){
+      inT ++;
+    }else{  //出たとき
+      let OUT = pos.timestamp;
+      let s = sousa[cp_n];
+      let out = AdjastTime(OUT);
+      let DataToLS = {cp_n, s, inT, out};   //{チェックポイント,どうぶつ情報操作回数,滞在時間,アウト時間}
+      StockLS(DataToLS);
+      inT = 0;
+      cp_f = 0;   alert("Now out!"+"\n"+"cp_f: "+cp_f+"\n"+"cp_n: "+cp_n+"  inT: "+inT+"  out: "+out);
+    }
 }}
 
 
@@ -257,7 +284,8 @@ function ShowPosition(){
     marker.setMap(map);
     infoWindow = new google.maps.InfoWindow({
       content: '<div class="marker_info">現在位置</div>'
-    });infoWindow.open(map, marker);
+    });
+    infoWindow.open(map, marker);
     marker.addListener('click', function(){
       infoWindow.open(map, marker);
     });
