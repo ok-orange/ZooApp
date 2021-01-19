@@ -92,7 +92,11 @@ function initMap(){
         zoom: 18,
         center: {lat: 34.01460, lng: 134.52115},
         mapTypeId: "satellite",
-        gestureHandling: 'greedy'
+        gestureHandling: 'greedy',
+        mapTypeControl: false,    //地図・航空写真の切り替え
+        fullscreenControl: false,   //全画面切り替え
+        streetViewControl: false,    //ストリートビュー
+        zoomControl: false
   });
   
   /*----- 動物マーカー -----*/
