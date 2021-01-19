@@ -10,6 +10,7 @@ var b_f = 0;
 var t_f = 0;
 var bench=[];
 var toilet = [];
+var currentInfoWindow = null;
 
 $.cookie('markerData', JSON.stringify(markerData), {secure:true});
 "use strict";
@@ -116,6 +117,10 @@ function initMap(){
         marker_fixed.addListener('click', function(){
           infoWindow_fixed.open(map, marker_fixed);
           PointCheck_Mark(mark.title, mark.img, mark.num);
+          if(currentInfoWindow != null){
+            currentInfoWindow.close();
+          }
+          currentInfoWindow = infoWindow_fixed;
       });}
   }());}
 }
