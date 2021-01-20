@@ -128,7 +128,7 @@ function initMap(){
           fillColor: "#ffd700",
           fillOpacity: 1.0,
           path: google.maps.SymbolPath.CIRCLE,
-          scale: 6,
+          scale: 8,
           strokeColor: "#000000",
           strokeWeight: 1.0   },
         map: map
