@@ -14,8 +14,7 @@
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="css/responsive.css">
-  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" user-scalable=no>   レスポンシブデザイン-->
-
+  
   <script src="js/data.js"></script>
   <script src="js/animal_explain.js"></script>
   <script src="js/index.js"></script>  
@@ -35,23 +34,18 @@
     <p id = "text_ae"></p>
   </div>
 
-  <!-- ハンバーガーメニューボタン -->
-  <div class = "hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <nav class = "globalMenu">
-    <ul>
-      <li><a href="#" onclick="ShowPosition()">　現在地</a></li>
-      <li><a href="#" onclick="ShowBench()">　ベンチ</a></li>
-      <li><a href="#" onclick="ShowToilet()">　トイレ</a></li>
-      <li><a href="#" onclick="StockPosition()">　定期取得</a></li>
-      <li><a href="#" onclick="StopGetPosition()">　取得停止</a></li>
-      <li><a href="#" onclick="HowToUse()">　つかいかた</a></li>
-      <li><a href="close.html" onclick="StopGetPosition()">　アプリを終了する</a></li>
+ <!-- メニューバー -->
+<footer class="footer">
+  <nav class="gnav">
+    <ul class="nav-list">
+      <li class="nav-item-q"><a href="close/" onclick="StopGetPosition()">終了</a></li>
+      <li class="nav-item"><a href="#" onclick="ShowPosition()" >現在地</a></li>
+      <li class="nav-item"><a href="#" onclick="ShowBench()">ベンチ</a></li>
+      <li class="nav-item"><a href="#" onclick="ShowToilet()">トイレ</a></li>
+      <li class="nav-item"><a href="#" onclick="HowToUse()">ヘルプ</a></li>
     </ul>
   </nav>
+</footer>
 
 </body>
 </html>
