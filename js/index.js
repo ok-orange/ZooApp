@@ -6,8 +6,7 @@ var position_timer;
 var posi_f = 0;
 var check_circle;
 var sousa=[];     //操作回数を格納
-var b_f = 0;
-var t_f = 0;
+var bt_f = 0;
 var bench=[];
 var toilet = [];
 var currentInfoWindow = null;
@@ -335,23 +334,16 @@ function ClearToilet(){
   }toilet = [];}
 
 
-/*----- ベンチマーカーを表示・非表示 -----*/
-function ShowBench(){
-  if(b_f == 0){
+/*---------- ベンチ・トイレの表示・非表示 ----------*/
+function ShowBT(){
+  if(bt_f == 0){
     SetBench();
-    b_f = 1;
+    SetToilet();
+    bt_f = 1;
   }else{
     ClearBench();
-    b_f = 0;
-}}
-/*----- トイレマーカーを表示・非表示 -----*/
-function ShowToilet(){
-  if(t_f == 0){
-    SetToilet();
-    t_f = 1;
-  }else{
     ClearToilet();
-    t_f = 0;
+    bt_f = 0;
 }}
 
 
