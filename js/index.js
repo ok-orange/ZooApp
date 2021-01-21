@@ -15,13 +15,12 @@ $.cookie('markerData', JSON.stringify(markerData), {secure:true});
 "use strict";
 
 window.onload = () =>{
-  // ⇓ 本番
-  //StockPosition();
-  getPosition();    //最初に現在位置を取得しておく
-  initMap();
   for(let i=0; i<markerData.length; i++){
     sousa[i] = 0;
   } 
+  getPosition();    //最初に現在位置を取得しておく
+  initMap();
+  StockPosition();  //定期的に位置を取得
 }
 
 /*---------- メインの関数 --------------------------------------------------------------
@@ -201,7 +200,7 @@ function StockLS(data){
     Data = Data.length > 2880 ? Data.slice(-10) : Data;   }
   Data.push(data);
   localStorage.setItem('Data', JSON.stringify(Data));
-  alert("StockLS：" + localStorage.getItem("Data"));
+  //alert("StockLS：" + localStorage.getItem("Data"));
 }
 
 
@@ -228,7 +227,7 @@ function PointCheck(pos){
         let d = checkDistance(pos.latitude, pos.longitude, checkCircle[i].lat, checkCircle[i].lng);
           if(d < (checkCircle[i].r)){
             if(i == 0){ cp_n = 10; }else{ cp_n = i; }
-            cp_f = 1;   alert("Now in!"+"\n"+"cp_f:"+cp_f+"\n"+"cp_n=:"+cp_n +"  inT: "+inT);
+            cp_f = 1;   //alert("Now in!"+"\n"+"cp_f:"+cp_f+"\n"+"cp_n=:"+cp_n +"  inT: "+inT);
           }else{
       }}else{   break;   }
     }
@@ -243,7 +242,7 @@ function PointCheck(pos){
       let DataToLS = {cp_n, s, inT, out};   //{チェックポイント,どうぶつ情報操作回数,滞在時間,アウト時間}
       StockLS(DataToLS);
       inT = 0;
-      cp_f = 0;   alert("Now out!"+"\n"+"cp_f: "+cp_f+"\n"+"cp_n: "+cp_n+"  inT: "+inT+"  out: "+out);
+      cp_f = 0;   //alert("Now out!"+"\n"+"cp_f: "+cp_f+"\n"+"cp_n: "+cp_n+"  inT: "+inT+"  out: "+out);
     }
 }}
 
@@ -320,7 +319,7 @@ function SetToilet(){
       position: toiletData[i].pos,
       num: toiletData[i].num,
       icon: {
-        url: "./pic//toilet3.png",
+        url: "./pic/toilet3.png",
         scaledSize: new google.maps.Size(18, 18)
       },
       map: map
@@ -347,7 +346,7 @@ function ShowBT(){
 }}
 
 
-/*---------- ハンバーガーメニュー ----------*/
+/*---------- ハンバーガーメニュー ----------*
 $(function(){
   $('.hamburger').click(function(){
     $(this).toggleClass('active');
@@ -359,3 +358,4 @@ $(function(){
     }
   })
 })
+*/
