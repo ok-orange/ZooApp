@@ -23,7 +23,7 @@ html{
   height: 40px;    width: 100%;
   top: 20%;         left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   font-weight: 900;
   color: white;
   /*-webkit-text-stroke: 1.1px #000;*/
@@ -36,7 +36,7 @@ html{
   height: 30px;    width: 100%;
   top: 36%;         left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 #questionary_text{
   transform: translate(-50%, -50%);
@@ -45,7 +45,7 @@ html{
   height: 30px;    width: 100%;
   top: 48%;         left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 
 a.start_button{
@@ -58,7 +58,7 @@ a.start_button{
   
   background-color: #fff100;
   border-bottom: 6px solid #ccc100;
-  font-size: 2.0rem;
+  font-size: 3.0rem;
   font-weight: 900;
   line-height: 0.9;
   display: inline-block;
@@ -95,7 +95,7 @@ a.questionary_button{
   
   background-color: #33d6ff;
   border-bottom: 6px solid #239fbe;
-  font-size: 2.0rem;
+  font-size: 3.0rem;
   font-weight: 900;
   line-height: 0.9;
   display: inline-block;
