@@ -3,6 +3,7 @@
 }
 
 html{
+  font-size: 62.5%;
   font-family: "MS PGothic", "system-ui";
   font-variant: common-ligatures tabular-nums;
 }
@@ -12,7 +13,7 @@ html{
   position: absolute;
   top: 0px;         left: 0px;
   height: 100%;    width: 100%;
-  font-size: x-large;
+  /*font-size: x-large;*/
   /*font-family: "system-ui", 'メイリオ';*/
   background:rgb(98, 226, 183);
 }
@@ -22,7 +23,7 @@ html{
   height: 40px;    width: 100%;
   top: 20%;         left: 50%;
   transform: translate(-50%, -50%);
-  font-size: xxx-large;
+  font-size: 2.5rem;
   font-weight: 900;
   color: white;
   /*-webkit-text-stroke: 1.1px #000;*/
@@ -35,7 +36,7 @@ html{
   height: 30px;    width: 100%;
   top: 36%;         left: 50%;
   transform: translate(-50%, -50%);
-  font-size: x-large;
+  font-size: 1.5rem;
 }
 #questionary_text{
   transform: translate(-50%, -50%);
@@ -44,7 +45,7 @@ html{
   height: 30px;    width: 100%;
   top: 48%;         left: 50%;
   transform: translate(-50%, -50%);
-  font-size: x-large;
+  font-size: 1.5rem;
 }
 
 a.start_button{
