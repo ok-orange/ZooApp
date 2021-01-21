@@ -28,7 +28,7 @@ let markerData = [
   },{
     title: "⑤モンキープロムナード",
     pos: {lat: 34.01395, lng: 134.522133},
-    img: "./pic/waokitsunezaru1.JPG",
+    img: "./pic/shishiozaru1.JPG",
     num: 5
   },{
     title: "⑥タイガープロムナード",
@@ -78,7 +78,7 @@ let markerData = [
   },{
     title: "⑯こども動物園",
     pos: {lat: 34.01425, lng: 134.51915},
-    img: "./pic/hitsuji2.JPG",
+    img: "./pic/pengin.JPG",
     num: 15
   }
 ];
