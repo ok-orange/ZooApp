@@ -16,6 +16,8 @@ $.cookie('markerData', JSON.stringify(markerData), {secure:true});
 "use strict";
 
 window.onload = () =>{
+  // ⇓ 本番
+  //StockPosition();
   getPosition();    //最初に現在位置を取得しておく
   initMap();
   for(let i=0; i<markerData.length; i++){
@@ -24,8 +26,6 @@ window.onload = () =>{
 }
 
 /*---------- メインの関数 --------------------------------------------------------------
-・AnimalData(mark_title, mark_img)
-・initMap()
 -------------------------------------------------------------------------------------*/
 
 /*----- 動物紹介の表示・非表示 -----*/
@@ -199,8 +199,7 @@ function StockLS(data){
   if(Data == null){
     Data = [];
   }if(Data.length > 0){
-    Data = Data.length > 2880 ? Data.slice(-10) : Data;
-  }
+    Data = Data.length > 2880 ? Data.slice(-10) : Data;   }
   Data.push(data);
   localStorage.setItem('Data', JSON.stringify(Data));
   alert("StockLS：" + localStorage.getItem("Data"));
