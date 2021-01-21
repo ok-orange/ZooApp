@@ -8,14 +8,15 @@
    <script src="js/close.js"></script>
   </head>
   
-  <body>
-    <div class = "body">
-      <pre id = "start_title">とくしまZooウォーカー</pre>
-      <pre id = "start_text">＼ 開始ボタンを押して始める ／</pre>
-      <a href="body.html" class="btn start_button btn--cubic">start!</a>
-      <pre id="questionary_text">＼ 終了時はアンケートにご協力ください ／</pre>
-      <a href="#" class="btn questionary_button btn--cubic" onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSe52Pb93pcQZWDjdFliL9J0jzOZW3CpR98eUBtVhNcBLBMP8g/viewform?usp=pp_url&entry.1775630333='+PlusURL()">close!</a>
+  <div class = "body">
+    <div id = "start_title">とくしまZooウォーカー</div>
+    <div class="start_button">
+      <div id="start_text">＼ とくしまZooウォーカーを始める ／</div>
+      <a href="body.html" id="start_button">start!</a>
     </div>
-  </body>
+    <div class="close_button">
+      <div id="close_text">＼ 終了前にアンケートにご協力下さい ／</div>
+      <a href="#" id="close_button" onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSe52Pb93pcQZWDjdFliL9J0jzOZW3CpR98eUBtVhNcBLBMP8g/viewform?usp=pp_url&entry.1775630333='+PlusURL()">close!</a></div>
+    </div>
   </body>
 </html>
