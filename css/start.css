@@ -2,37 +2,66 @@
     margin:0px;     padding:0px;
 }
 
+html{
+  font-family: "MS PGothic", "system-ui";
+  font-variant: common-ligatures tabular-nums;
+}
+
+
 .body{
   position: absolute;
   top: 0px;         left: 0px;
   height: 100%;    width: 100%;
-  font-family: "system-ui", 'メイリオ';
+  font-size: x-large;
+  /*font-family: "system-ui", 'メイリオ';*/
+  background:rgb(98, 226, 183);
 }
-#body_text{
+#start_title{
+  text-align: center;
+  position: relative;
+  height: 40px;    width: 100%;
+  top: 20%;         left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: xxx-large;
+  font-weight: 900;
+  color: white;
+  /*-webkit-text-stroke: 1.1px #000;*/
+  text-shadow:1.2px 0 0 #000,0 1.2px 0 #000,-1.2px 0 0 #000,0 -1.2px 0 #000;
+}
+#start_text{
   transform: translate(-50%, -50%);
   text-align: center;
   position: relative;
   height: 30px;    width: 100%;
-  top: 35%;         left: 50%;
+  top: 36%;         left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: x-large;
+}
+#questionary_text{
+  transform: translate(-50%, -50%);
+  text-align: center;
+  position: relative;
+  height: 30px;    width: 100%;
+  top: 48%;         left: 50%;
   transform: translate(-50%, -50%);
   font-size: x-large;
 }
 
 a.start_button{
   position: relative;
-  height: 35px;    width: 80px;
-  top: 40%;         left: 50%;
+  height: 30px;    width: 150px;
+  top: 39%;         left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   margin: 0 auto;
-  line-height: 35px;
   
   background-color: #fff100;
   border-bottom: 6px solid #ccc100;
   font-size: 2.0rem;
-  font-weight: 700;
+  font-weight: 900;
+  line-height: 0.9;
   display: inline-block;
-  padding: 1.3rem 4rem;
+  padding: 1.1rem 2rem;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -49,6 +78,43 @@ a.start_button{
 a.start_button:hover{
     margin-top: 3px;
     color: #000;
-    background: #fff20a;
+    background: #ebe013;
     border-bottom: 2px solid #ccc100;
+}
+
+
+a.questionary_button{
+  position: relative;
+  height: 30px;    width: 150px;
+  top: 51%;         left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  margin: 0 auto;
+  line-height: 35px;
+  
+  background-color: #33d6ff;
+  border-bottom: 6px solid #239fbe;
+  font-size: 2.0rem;
+  font-weight: 900;
+  line-height: 0.9;
+  display: inline-block;
+  padding: 1.1rem 2rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #000;
+  border-radius: 0.5rem;
+}
+a.questionary_button:hover{
+    margin-top: 3px;
+    color: #000;
+    background: #30c9f0;
+    border-bottom: 2px solid #239fbe;
 }
