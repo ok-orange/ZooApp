@@ -38,7 +38,7 @@ let markerData = [
   },{
     title: "⑦セイロンゾウ",
     pos: {lat: 34.01465, lng: 134.52288},
-    img: "./pic/zou1.JPG",
+    img: "./pic/zou2.JPG",
     num: 7
   },{
     title: "⑧ミーアキャット",
