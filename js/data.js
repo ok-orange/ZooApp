@@ -3,7 +3,7 @@ let markerData = [
   {
     title: "とくしま動物園へようこそ！",
     pos: {lat: 34.0139, lng: 134.52075},
-    img: "./pic/.JPG",
+    img: "./pic/gate.JPG",
     num: 0
   },{
     title: "①フライングゲージ",
@@ -43,7 +43,7 @@ let markerData = [
   },{
     title: "⑧ミーアキャット",
     pos: {lat: 34.0153, lng: 134.52306},
-    img: "./pic/miacat3.JPG",
+    img: "./pic/miacat.JPG",
     num: 8
   },{
     title: "⑨ライオン",
