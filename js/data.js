@@ -1,9 +1,9 @@
 /*---------- 動物の固定マーカー ----------*/
 let markerData = [
   {
-    title: "とくしま動物園へようこそ！(入り口)",
+    title: "とくしま動物園へようこそ！",
     pos: {lat: 34.0139, lng: 134.52075},
-    img: "./pic/restaurant.JPG",
+    img: "./pic/.JPG",
     num: 0
   },{
     title: "①フライングゲージ",
@@ -80,11 +80,6 @@ let markerData = [
     pos: {lat: 34.01425, lng: 134.51915},
     img: "./pic/hitsuji2.JPG",
     num: 15
-  },{
-    title: "多目的広場(乗馬体験)",
-    pos: {lat: 34.0142900, lng: 134.5185},
-    img: "./pic/pony1.JPG",
-    num: 16
   }
 ];
 
@@ -137,9 +132,6 @@ let checkCircle = [
   },{
     lat: 34.01436, lng: 134.51973,  //コンドル
     r: 16
-  },{
-    lat: 34.01430, lng: 134.51911,  //こども動物園
-    r: 41
   },{
     lat: 34.01430, lng: 134.51911,  //こども動物園
     r: 41
