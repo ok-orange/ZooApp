@@ -21,7 +21,7 @@
 let AnimalData = [
     //入り口
   "<div style='text-align: center'><img src='./pic/gate.JPG' width='80%'></div>"
-    "<h3>どうぶつたちの動画が見られるよ！"+"<br>"+" → "
+    +"<h3>どうぶつたちの動画が見られるよ！"+"<br>"+" → "
     +"<a href='https://www.city.tokushima.tokushima.jp/zoo/sonota/dogamoku.html'>園内動物動画 配信一覧</h3></a>"+"<br>"+"<br>"
     +"<a href='https://www.city.tokushima.tokushima.jp/zoo/'><p>とくしま動物園 HP</p></a>"+"<br>"+"<br>"+"<br>"+"<br>"
     ,
