@@ -25,11 +25,11 @@ window.onload = () =>{
 
 /*---------- メインの関数 --------------------------------------------------------------
 -------------------------------------------------------------------------------------*/
-var img;
+//var img;
 /*----- 動物紹介の表示・非表示 -----*/
 function AnimalInformation(mark_title, mark_img, mark_num){
   var geo_text1 = "<h1>" + mark_title +"<\h1>";
-  img = document.getElementById("text_img");
+  //img = document.getElementById("text_img");
   let a = localStorage.getItem('sousa'+mark_num);
   
   if(a == 1){
@@ -41,7 +41,7 @@ function AnimalInformation(mark_title, mark_img, mark_num){
       var geo_text2 = "<h4>動物の近くに行くと、情報が見られるようになるよ！"+"<br>"+mark_title+"を見に行こう！<\h4>";
     }
   }}
-  img.src = mark_img;
+  //img.src = mark_img;
   document.getElementById("text_title").innerHTML = geo_text1;   
   document.getElementById("text_ae").innerHTML = geo_text2;
 }
@@ -90,9 +90,9 @@ function PointCheck_Mark(mark_title, mark_img, mark_num){
 
 /*---------- つかいかた ----------*/
 function HowToUse(){
-  img = document.getElementById("text_img");
+  /*img = document.getElementById("text_img");
   if(img.src == null){}
-  else{  img.src = "";  }
+  else{  img.src = "";  }*/
   document.getElementById("text_title").innerHTML
     = "<h1>～使い方～</h1>";
   document.getElementById("text_ae").innerHTML
@@ -104,8 +104,8 @@ function HowToUse(){
         + "<p>画面左下の「アンケート」 ボタンを押してね！</p>"+"<br>"+"<br>"+"<br>"+"<br>";
   
   //テスト確認用
-  alert("Data in LS："+"\n"
-        +localStorage.getItem('Data'));
+  /*alert("Data in LS："+"\n"
+        +localStorage.getItem('Data'));*/
 }
 
 
