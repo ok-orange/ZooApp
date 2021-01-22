@@ -87,8 +87,9 @@ function PointCheck_Mark(mark_title, mark_img, mark_num){
 
 /*---------- つかいかた ----------*/
 function HowToUse(){
-  //let img = document.getElementById("text_img");
-  img.src = "";
+  img = document.getElementById("text_img");
+  if(img.src == null){}
+  else{  img.src = "";  }
   document.getElementById("text_title").innerHTML
     = "<h1>～使い方～</h1>";
   document.getElementById("text_ae").innerHTML
