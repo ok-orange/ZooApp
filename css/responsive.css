@@ -41,18 +41,18 @@ html{
   background: rgb(98, 226, 183);
   text-shadow:1px 0 0 #000,0 1px 0 #000,-1px 0 0 #000,0 -1px 0 #000;
 }
-#text_img{
+/*#text_img{
   position: relative;
   width: 80%;
   top: 10px;           left: 10%;
   z-index: 0;
-}
+}*/
 #text_ae{
   position: relative;
   text-align: justify;
   text-justify: auto;
   width:  96%;    left: 2%;
-  top: 30px;
+  top: 20px;
   z-index: 0;
   line-height: 1.5;
 }
