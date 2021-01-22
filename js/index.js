@@ -27,8 +27,8 @@ window.onload = () =>{
 -------------------------------------------------------------------------------------*/
 //var img;
 /*----- 動物紹介の表示・非表示 -----*/
-//function AnimalInformation(mark_title, mark_img, mark_num){
-function AnimalInformation(mark_title, mark_num){
+function AnimalInformation(mark_title, mark_img, mark_num){
+//function AnimalInformation(mark_title, mark_num){
   var geo_text1 = "<h1>" + mark_title +"<\h1>";
   //img = document.getElementById("text_img");
   let a = localStorage.getItem('sousa'+mark_num);
@@ -39,7 +39,8 @@ function AnimalInformation(mark_title, mark_num){
     if(mark_num == 0){
        var geo_text2 = AnimalData[mark_num];
     }else{
-      var geo_text2 = "<h4>動物の近くに行くと、情報が見られるようになるよ！"+"<br>"+mark_title+"を見に行こう！<\h4>";
+      var geo_text2 = "<div style='text-align: center'><img src=mark_img width='80%'></div>"
+                    + "<h4>動物の近くに行くと、情報が見られるようになるよ！"+"<br>"+mark_title+"を見に行こう！<\h4>";
     }
   }
   //img.src = mark_img;
@@ -59,7 +60,7 @@ function checkDistance(lat1, lng1, lat2, lng2){
 }
 
 /*----- チェックポイント判定 -----*/
-function PointCheck_Mark(mark_title, mark_num){
+function PointCheck_Mark(mark_title, mark_img, mark_num){
   let cp_lat = checkCircle[mark_num].lat;
   let cp_lng = checkCircle[mark_num].lng;
   let pos = Mark;
@@ -85,7 +86,7 @@ function PointCheck_Mark(mark_title, mark_num){
     //LSにフラグ保存
     localStorage.setItem('sousa'+mark_num,'1');
   }else{}
-  AnimalInformation(mark_title, mark_num);
+  AnimalInformation(mark_title, mark_img, mark_num);
 }
 
 
@@ -146,7 +147,7 @@ function initMap(){
         });
         marker_fixed.addListener('click', function(){
           infoWindow_fixed.open(map, marker_fixed);
-          PointCheck_Mark(mark.title, mark.num);
+          PointCheck_Mark(mark.title, mark.img, mark.num);
           if(currentInfoWindow != null){
             currentInfoWindow.close();
           }
