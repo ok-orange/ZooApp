@@ -15,11 +15,11 @@ $.cookie('markerData', JSON.stringify(markerData), {secure:true});
 "use strict";
 
 window.onload = () =>{
+  getPosition();    //最初に現在位置を取得しておく
+  initMap();
   for(let i=0; i<markerData.length; i++){
     sousa[i] = 0;
   } 
-  getPosition();    //最初に現在位置を取得しておく
-  initMap();
   StockPosition();  //定期的に位置を取得
 }
 
