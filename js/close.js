@@ -7,6 +7,6 @@ function PlusURL(){
     }else{
       plusData += data;
     }
-    alert("plusData： " + plusData);
+    //alert("plusData： " + plusData);
     return plusData;
   }
