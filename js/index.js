@@ -180,7 +180,8 @@ var error = function (error) {
     '</tr>';
   console.error(result);
   if(error.code == 1){
-    alert("位置情報をオンにしてください。");
+    alert("位置情報をオンにしてください。"+"\n"+"\n"
+          +"Safariの場合：本体の設定から、Safariへの位置情報の許可をオンにしてください。");
 }};
 var option = {
   enableHighAccuracy: true,
