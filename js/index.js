@@ -90,7 +90,7 @@ function HowToUse(){
   let img = document.getElementById("text_img");
   img.src = "";
   document.getElementById("text_title").innerHTML
-    = "<h1>～つかいかた～</h1>";
+    = "<h1>～使い方～</h1>";
   document.getElementById("text_ae").innerHTML
     = "<h3>・マップ</h3>"
         + "<p>どうぶつの近くで黄色い丸をタップすると、どうぶつの情報が見られるよ。</p>"+"<br>"
