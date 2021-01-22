@@ -41,7 +41,7 @@ function AnimalInformation(mark_title, mark_num){
     }else{
       var geo_text2 = "<h4>動物の近くに行くと、情報が見られるようになるよ！"+"<br>"+mark_title+"を見に行こう！<\h4>";
     }
-  }}
+  }
   //img.src = mark_img;
   document.getElementById("text_title").innerHTML = geo_text1;   
   document.getElementById("text_ae").innerHTML = geo_text2;
