@@ -15,6 +15,7 @@ $.cookie('markerData', JSON.stringify(markerData), {secure:true});
 "use strict";
 
 window.onload = () =>{
+  alert("とくしまZooウォーカーを開いていただき、ありがとうございます！"+"\n"+"ぜひご利用ください。"+"\n"+"\n"+"※ご利用後は、アンケートへのご協力をお願いいたします。");
   getPosition();    //最初に現在位置を取得しておく
   initMap();
   for(let i=0; i<markerData.length; i++){
