@@ -28,7 +28,6 @@ window.onload = () =>{
 //var img;
 /*----- 動物紹介の表示・非表示 -----*/
 function AnimalInformation(mark_title, mark_img, mark_num){
-//function AnimalInformation(mark_title, mark_num){
   var geo_text1 = "<h1>" + mark_title +"<\h1>";
   //img = document.getElementById("text_img");
   let a = localStorage.getItem('sousa'+mark_num);
@@ -39,11 +38,9 @@ function AnimalInformation(mark_title, mark_img, mark_num){
     if(mark_num == 0){
        var geo_text2 = AnimalData[mark_num];
     }else{
-      /*
       var geo_text2 = "<div style='text-align: center'><img src="+ mark_img +" width='90%'></div>"
                     + "<h4>動物の近くに行くと、情報が見られるようになるよ！"+"<br>"+mark_title+"を見に行こう！<\h4>";
-                    */
-      var geo_text2 = AnimalData[mark_num];
+      //var geo_text2 = AnimalData[mark_num];
     }
   }
   //img.src = mark_img;
@@ -107,10 +104,6 @@ function HowToUse(){
         + "<p>現在地とベンチ・トイレの場所を、マップに表示・非表示できるよ！</p>"+"<br>"
         + "<h3>終了するとき</h3>"
         + "<p>画面左下の「アンケート」ボタンから、アンケートに答えて終了してね！</p>"+"<br>"+"<br>"+"<br>"+"<br>";
-  
-  //テスト確認用
-  /*alert("Data in LS："+"\n"
-        +localStorage.getItem('Data'));*/
 }
 
 
@@ -228,6 +221,17 @@ function AdjastTime(stamp){
 }
 
 
+var AQ_f = 0;
+/*---------- 出口でアンケート表示 ----------*/
+function AskQuestionary(){
+  if(window.confirm("ご利用ありがとうございました！"+"\n"
+    +"最後に、アンケートへのご協力をお願いいたします。"+"\n"
+    +"(画面左下の「アンケート」ボタンからもご回答いただけます。)")){
+      location.href='https://docs.google.com/forms/d/e/1FAIpQLSe52Pb93pcQZWDjdFliL9J0jzOZW3CpR98eUBtVhNcBLBMP8g/viewform?usp=pp_url&entry.1775630333='+PlusURL();
+  }
+}
+
+
 var CL = checkCircle.length;
 var cp_f = 0;
 var cp_n = 0;
@@ -239,7 +243,15 @@ function PointCheck(pos){
       if(cp_f == 0){
         let d = checkDistance(pos.latitude, pos.longitude, checkCircle[i].lat, checkCircle[i].lng);
           if(d < (checkCircle[i].r)){
-            if(i == 0){ cp_n = 10; }else{ cp_n = i; }
+            if(i == 0){
+              cp_n = 10; 
+            }else if(i == 17){
+              if(AQ_f == 0){
+                AskQuestionary();
+                AQ_f = 1;
+              }else{}
+            }else{
+              cp_n = i; }
             cp_f = 1;
           }else{
       }}else{   break;   }
