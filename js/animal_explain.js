@@ -276,7 +276,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
   +"<div style='text-align: center'><img src='./pic/namakemono.JPG' width='80%'></div>"
-    +"<h2>フタユビナマケモノ（なまえ：ビリー）</h2>"
+    +"<h2>フタユビナマケモノ"+"<br>"+"（なまえ：ビリー）</h2>"
     +"<h3>ナマケモノ亜目フタユビナマケモノ科" +"<br>"
     +"<p>南米ガイアナうまれ</p></h3>"+"<br>"
     +"<h3>～どんなどうぶつ？～</h3>" + "\n" 
