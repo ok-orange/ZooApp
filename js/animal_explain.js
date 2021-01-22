@@ -20,14 +20,14 @@
 */
 let AnimalData = [
     //入り口
-  "<div style='text-align: center'><img src='./pic/gate.JPG' width='80%'></div>"
+  "<div style='text-align: center'><img src='./pic/gate.JPG' width='90%'></div>"
     +"<h3>どうぶつたちの動画が見られるよ！"+"<br>"+" → "
     +"<a href='https://www.city.tokushima.tokushima.jp/zoo/sonota/dogamoku.html'>園内動物動画 配信一覧</h3></a>"+"<br>"+"<br>"
     +"<a href='https://www.city.tokushima.tokushima.jp/zoo/'><p>とくしま動物園 HP</p></a>"+"<br>"+"<br>"+"<br>"+"<br>",
 
 
     //フライングゲージ
-  "<div style='text-align: center'><img src='./pic/fly1.JPG' width='80%'></div>"
+  "<div style='text-align: center'><img src='./pic/fly1.JPG' width='90%'></div>"
     +"<h3>今はフライングゲージには入れないけど、外の壁に鳥たちの紹介があるよ。見てみてね！</h3>"
     +"<p>(写真：左からアフリカクロトキ、ホオジロカンムリヅル、ショウジョウトキ)</p>" + "<br>"
         +"<h3>ホオジロカンムリヅル</h3>" + "\n" 
@@ -53,7 +53,7 @@ let AnimalData = [
     
 
     //ニホンカモシカ
-  "<div style='text-align: center'><img src='./pic/kamoshika.JPG' width='80%'></div>"
+  "<div style='text-align: center'><img src='./pic/kamoshika.JPG' width='90%'></div>"
     +"<h3>偶蹄目ウシ科"
     +"<p>(生息地)日本の本州・四国・九州の、"+"<br>"+"ブナやミズナラを中心とした落葉広葉樹林</p></h3>" + "<br>"
     +"<h3>～どんなどうぶつ？～</h3>" + "\n" +"<p>主に単独で行動し、眼下線をこすり付ける「臭い付け」によりなわばりを主張する。" + "<br>" 
@@ -61,7 +61,7 @@ let AnimalData = [
 
     
     //温帯プロムナード
-  "<div style='text-align: center'><img src='./pic/lesserpanda1.JPG' width='80%'></div>"
+  "<div style='text-align: center'><img src='./pic/lesserpanda1.JPG' width='90%'></div>"
     +"<h2>レッサーパンダ</h2>"
     +"<h3>食肉目(ネコ目)アライグマ科</h3>" +"<br>"
     +"<h3>～どんなどうぶつ？～</h3>" + "\n" 
@@ -73,7 +73,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/tanuki.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/tanuki.JPG' width='90%'></div>"
     +"<h2>ホンドタヌキ（なまえ：マービー）</h2>"
     +"<h3>食肉目(ネコ目)イヌ科</h3>" +"<br>"
     +"<h3>～どんなどうぶつ？～</h3>" + "\n" 
@@ -87,7 +87,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/kawauso.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/kawauso.JPG' width='90%'></div>"
     +"<h2>コツメカワウソ</h2>"
     +"<h3>食肉目(ネコ目)イタチ科</h3>" +"<br>"
     +"<h3>～どんなどうぶつ？～</h3>" + "\n" 
@@ -102,7 +102,7 @@ let AnimalData = [
 
 
     //ツキノワグマ
-  "<div style='text-align: center'><img src='./pic/tsukinowaguma0.JPG' width='80%'></div>"
+  "<div style='text-align: center'><img src='./pic/tsukinowaguma0.JPG' width='90%'></div>"
     +"<h2>Save The Island Bear"+"<br>"
     +"<p>四国のツキノワグマを絶滅から救おう</p></h2>" + "\n" 
     +"<p>日本のツキノワグマのことが紹介されているよ。" + "<br>" + "かわいいLINEスタンプで募金もできるよ！</p>" + "<br>"+"<br>"
@@ -121,7 +121,7 @@ let AnimalData = [
 
 
     //モンキープロムナード
-  "<div style='text-align: center'><img src='./pic/shishiozaru1.JPG' width='80%'></div>"
+  "<div style='text-align: center'><img src='./pic/shishiozaru1.JPG' width='90%'></div>"
     +"<h2>シシオザル</h2>"
     +"<h3>霊長目オナガザル科"+"<br>"
     +"<p>(生息地)インド南西部</p></h3>" +"<br>"
@@ -134,7 +134,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/butaozaru5.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/butaozaru5.JPG' width='90%'></div>"
     +"<h2>ブタオザル</h2>"
     +"<h3>霊長目オナガザル科"+"<br>"
     +"<p>(生息地)東南アジア</p></h3>" +"<br>"
@@ -145,7 +145,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/nihonzaru1.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/nihonzaru1.JPG' width='90%'></div>"
     +"<h2>ニホンザル</h2>"
     +"<h3>霊長目オナガザル科"+"<br>"
     +"<p>(生息地)日本</p></h3>" +"<br>"
@@ -155,7 +155,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/chinpanzi5.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/chinpanzi5.JPG' width='90%'></div>"
     +"<h2>チンパンジー</h2>"
     +"<h3>霊長目オランウータン科"+"<br>"
     +"<p>(生息地)アフリカ中部・西部</p></h3>" +"<br>"
@@ -168,7 +168,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/waokitsunezaru2.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/waokitsunezaru2.JPG' width='90%'></div>"
     +"<h2>ワオキツネザル</h2>"
     +"<h3>霊長目キツネザル科"+"<br>"
     +"<p>(生息地)マダガスカル南部</p></h3>" +"<br>"
@@ -180,7 +180,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/dogerahihi2.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/dogerahihi2.JPG' width='90%'></div>"
     +"<h2>ドグエラヒヒ</h2>"
     +"<h3>霊長目オナガザル科"+"<br>"
     +"<p>(生息地)アフリカ中部・東部</p></h3>" +"<br>"
@@ -194,7 +194,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/mantohihi.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/mantohihi.JPG' width='90%'></div>"
     +"<h2>マントヒヒ</h2>"
     +"<h3>霊長目オナガザル科"+"<br>"
     +"<p>(生息地)アフリカ東部・アラビア半島西南部</p></h3>" +"<br>"
@@ -206,7 +206,7 @@ let AnimalData = [
 
 
     //タイガープロムナード
-  "<div style='text-align: center'><img src='./pic/tora1.JPG' width='80%'></div>"
+  "<div style='text-align: center'><img src='./pic/tora1.JPG' width='90%'></div>"
     +"<h2>ベンガルトラ</h2>"
     +"<h3>食肉目(ネコ目)ネコ科"+"<br>"
     +"<p>(生息地)インド</p></h3>" +"<br>"
@@ -220,7 +220,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/kitsune1.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/kitsune1.JPG' width='90%'></div>"
     +"<h2>ホンドギツネ</h2>"
     +"<h3>食肉目(ネコ目)イヌ科"+"<br>"
     +"<p>(生息地)日本の本州・四国・九州</p></h3>" +"<br>"
@@ -232,7 +232,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/kogatawani.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/kogatawani.JPG' width='90%'></div>"
     +"<h2>ニシアフリカコガタワニ</h2>"
     +"<h3>ワニ目クロコダイル科"+"<br>"
     +"<p>(生息地)サハラ砂漠以南のアフリカ大陸西部</p></h3>" +"<br>"
@@ -246,7 +246,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/meganekaiman.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/meganekaiman.JPG' width='90%'></div>"
     +"<h2>メガネカイマン</h2>"
     +"<h3>ワニ目アリゲーター科"+"<br>"
     +"<p>(生息地)中央アメリカ、南アメリカの北部・中部</p></h3>" +"<br>"
@@ -258,7 +258,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/rikugame2.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/rikugame2.JPG' width='90%'></div>"
     +"<h2>ケヅメリクガメ</h2>"
     +"<h3>カメ目リクガメ科"+"<br>"
     +"<p>(生息地)アフリカ東部・中部・西部</p></h3>" +"<br>"
@@ -270,7 +270,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/pyuma.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/pyuma.JPG' width='90%'></div>"
     +"<h2>ピューマ</h2>"
     +"<h3>食肉目(ネコ目)ネコ科</h3>" +"<br>"
     +"<h3>～どんなどうぶつ？～</h3>" + "\n" 
@@ -280,7 +280,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/namakemono.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/namakemono.JPG' width='90%'></div>"
     +"<h2>フタユビナマケモノ"+"<br>"+"（なまえ：ビリー）</h2>"
     +"<h3>ナマケモノ亜目フタユビナマケモノ科" +"<br>"
     +"<p>南米ガイアナうまれ</p></h3>"+"<br>"
@@ -291,7 +291,7 @@ let AnimalData = [
 
 
     //セイロンゾウ
-  "<div style='text-align: center'><img src='./pic/zou2.JPG' width='80%'></div>"
+  "<div style='text-align: center'><img src='./pic/zou2.JPG' width='90%'></div>"
     +"<h2>なまえ：マリー (1990年うまれ)</h2>"
     +"<h3>長鼻目ゾウ科" +"<br>" 
     +"<p>(生息地)スリランカ</p></h3>"+ "<br>"
@@ -306,7 +306,7 @@ let AnimalData = [
 
 
     //ミーアキャット
-  "<div style='text-align: center'><img src='./pic/miacat.JPG' width='80%'></div>"
+  "<div style='text-align: center'><img src='./pic/miacat.JPG' width='90%'></div>"
     +"<h3>食肉目(ネコ目)ジャコウネコ科" +"<br>" 
     +"<p>(生息地)アフリカ南部</p></h3>" + "<br>"
     +"<h3>～どんなどうぶつ？～</h3>" + "\n"
@@ -318,7 +318,7 @@ let AnimalData = [
 
 
     //ライオン
-  "<div style='text-align: center'><img src='./pic/lion.JPG' width='80%'></div>"
+  "<div style='text-align: center'><img src='./pic/lion.JPG' width='90%'></div>"
     +"<h2>なまえ："+"<br>"
         +"レオ(オス、2010年うまれ)"+"<br>"
         +"ムーン(メス、2018年うまれ)</h2>" +"<br>"
@@ -333,7 +333,7 @@ let AnimalData = [
 
 
     //サバンナ区
-  "<div style='text-align: center'><img src='./pic/sabanna3.JPG' width='80%'></div>"
+  "<div style='text-align: center'><img src='./pic/sabanna3.JPG' width='90%'></div>"
     +"<h3>とくしま動物園は、日本で一番カピバラが多い動物園だよ！</h3>"+"<br>"
     +"<h2>カピバラ</h2>"
     +"<h3>齧歯目(げっしもく)テンジクネズミ科"+"<br>" 
@@ -357,14 +357,14 @@ let AnimalData = [
 
 
     //フラミンゴ
-  "<div style='text-align: center'><img src='./pic/flamingo1.JPG' width='80%'></div>"
+  "<div style='text-align: center'><img src='./pic/flamingo1.JPG' width='90%'></div>"
     +"<h2>フラミンゴ</h2>"
     +"<h3>フラミンゴ目フラミンゴ科"+"<br>"
     +"<p>(生息地)アフリカ、南ヨーロッパ、中南米の塩湖や干潟</p></h3>"+"<br>"+"<br>"+"<br>"+"<br>",
 
 
     //オオカミ
-  "<div style='text-align: center'><img src='./pic/ookami1.JPG' width='80%'></div>"
+  "<div style='text-align: center'><img src='./pic/ookami1.JPG' width='90%'></div>"
     +"<h3>みえないときは寝室か矢印の方向にいることがあるよ！</h3>" + "<br>"
     +"<h2>なまえ：ユウキ (2011年うまれ)</h2>" +"<br>"
     +"<h3>食肉目(ネコ目)イヌ科" +"<br>" 
@@ -378,7 +378,7 @@ let AnimalData = [
 
 
     //ホッキョクグマ
-  "<div style='text-align: center'><img src='./pic/pololo4.JPG' width='80%'></div>"
+  "<div style='text-align: center'><img src='./pic/pololo4.JPG' width='90%'></div>"
     +"<h3>観覧時間は9:30～16:00だよ！</h3>" + "<br>" 
     +"<h2>なまえ：ポロロ (メス、2012年うまれ)"+"<br>"
         +"イワン (オス、2000年うまれ)</h2>" +"<br>"
@@ -396,7 +396,7 @@ let AnimalData = [
     
 
     //アンデスコンドル
-  "<div style='text-align: center'><img src='./pic/condol.JPG' width='80%'></div>"
+  "<div style='text-align: center'><img src='./pic/condol.JPG' width='90%'></div>"
     +"<h3>とくしま動物園のシンボルマーク！</h3>"
     +"<p>詳しくは、ベンチ近くの「アンデスコンドル　個体紹介」を見てみてね！</p>" + "<br>"
     
@@ -413,7 +413,7 @@ let AnimalData = [
 
 
     //こども動物園
-  "<div style='text-align: center'><img src='./pic/pengin.JPG' width='80%'></div>"
+  "<div style='text-align: center'><img src='./pic/pengin.JPG' width='90%'></div>"
     +"<h2>フンボルトペンギン</h2>"
     +"<h3>ペンギン目ペンギン科"+"<br>"
     +"<p>(生息地)南米の太平洋沿岸域</p></h3>"+"<br>"
@@ -428,7 +428,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/liszal.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/liszal.JPG' width='90%'></div>"
     +"<h2>リスザル</h2>"
     +"<h3>霊長目オマキザル科"+"<br>"
     +"<p>(生息地)南米の太平洋沿岸域</p></h3>"+"<br>"
@@ -442,7 +442,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/usagi.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/usagi.JPG' width='90%'></div>"
     +"<h2>ウサギ</h2>"+"<br>"
     +"<h3>～どんなどうぶつ？～</h3>"
     +"<p>スペイン地方にすむアナウサギを家畜化したものを「カイウサギ」と呼び、野生のウサギと区別している。"+"<br>"
@@ -451,7 +451,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/mara.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/mara.JPG' width='90%'></div>"
     +"<h2>マーラ</h2>"
     +"<h3>齧歯目テンジクネズミ科</h3>"+"<br>"
     +"<h3>～どんなどうぶつ？～</h3>"
@@ -462,7 +462,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/minibuta.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/minibuta.JPG' width='90%'></div>"
     +"<h2>ミニブタ（なまえ：ココア）</h2>"
     +"<h3>偶蹄目イノシシ科</h3>"+"<br>"
     +"<h3>～どんなどうぶつ？～</h3>"
@@ -473,7 +473,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/lama1.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/lama1.JPG' width='90%'></div>"
     +"<h2>ラマ（なまえ：チャコ）</h2>"+"<br>"
     +"<h3>～どんなどうぶつ？～</h3>"
     +"<p>ラマは南米のアンデス山地など乾燥した環境で飼育されている家畜である。"+"<br>"
@@ -482,7 +482,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/hitsuji2.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/hitsuji2.JPG' width='90%'></div>"
   +"<h2>ヒツジ</h2>"+"<br>"
     +"<h3>偶蹄目ウシ科ヒツジ属</h3>"+"<br>"
     +"<h3>～どんなどうぶつ？～</h3>"
@@ -492,7 +492,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/gatyou.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/gatyou.JPG' width='90%'></div>"
     +"<h2>ガチョウ</h2>"
     +"<h3>カモ目カモ科</h3>"+"<br>"
     +"<h3>～どんなどうぶつ？～</h3>"
@@ -502,7 +502,7 @@ let AnimalData = [
   +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/pony.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/pony.JPG' width='90%'></div>"
     +"<h2>ポニー</h2>"+"<br>"
     +"<h3>奇蹄目ウマ科</h3>"+"<br>"
     +"<h3>～どんなどうぶつ？～</h3>"
