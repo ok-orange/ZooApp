@@ -27,7 +27,8 @@ window.onload = () =>{
 -------------------------------------------------------------------------------------*/
 //var img;
 /*----- 動物紹介の表示・非表示 -----*/
-function AnimalInformation(mark_title, mark_img, mark_num){
+//function AnimalInformation(mark_title, mark_img, mark_num){
+function AnimalInformation(mark_title, mark_num){
   var geo_text1 = "<h1>" + mark_title +"<\h1>";
   //img = document.getElementById("text_img");
   let a = localStorage.getItem('sousa'+mark_num);
@@ -58,7 +59,7 @@ function checkDistance(lat1, lng1, lat2, lng2){
 }
 
 /*----- チェックポイント判定 -----*/
-function PointCheck_Mark(mark_title, mark_img, mark_num){
+function PointCheck_Mark(mark_title, mark_num){
   let cp_lat = checkCircle[mark_num].lat;
   let cp_lng = checkCircle[mark_num].lng;
   let pos = Mark;
@@ -84,7 +85,7 @@ function PointCheck_Mark(mark_title, mark_img, mark_num){
     //LSにフラグ保存
     localStorage.setItem('sousa'+mark_num,'1');
   }else{}
-  AnimalInformation(mark_title, mark_img, mark_num);
+  AnimalInformation(mark_title, mark_num);
 }
 
 
@@ -145,7 +146,7 @@ function initMap(){
         });
         marker_fixed.addListener('click', function(){
           infoWindow_fixed.open(map, marker_fixed);
-          PointCheck_Mark(mark.title, mark.img, mark.num);
+          PointCheck_Mark(mark.title, mark.num);
           if(currentInfoWindow != null){
             currentInfoWindow.close();
           }
@@ -234,7 +235,7 @@ function PointCheck(pos){
         let d = checkDistance(pos.latitude, pos.longitude, checkCircle[i].lat, checkCircle[i].lng);
           if(d < (checkCircle[i].r)){
             if(i == 0){ cp_n = 10; }else{ cp_n = i; }
-            cp_f = 1;   //alert("Now in!"+"\n"+"cp_f:"+cp_f+"\n"+"cp_n=:"+cp_n +"  inT: "+inT);
+            cp_f = 1;
           }else{
       }}else{   break;   }
     }
@@ -249,7 +250,7 @@ function PointCheck(pos){
       let DataToLS = {cp_n, s, inT, out};   //{チェックポイント,どうぶつ情報操作回数,滞在時間,アウト時間}
       StockLS(DataToLS);
       inT = 0;
-      cp_f = 0;   //alert("Now out!"+"\n"+"cp_f: "+cp_f+"\n"+"cp_n: "+cp_n+"  inT: "+inT+"  out: "+out);
+      cp_f = 0;
     }
 }}
 
