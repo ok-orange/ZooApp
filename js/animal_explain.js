@@ -459,7 +459,7 @@ let AnimalData = [
     +"<br>"
     +"<br>"
     +"<br>"
-  +"<div style='text-align: center'><img src='./pic/lama3.JPG' width='80%'></div>"
+  +"<div style='text-align: center'><img src='./pic/lama1.JPG' width='80%'></div>"
     +"<h2>ラマ（なまえ：チャコ）</h2>"+"<br>"
     +"<h3>～どんなどうぶつ？～</h3>"
     +"<p>ラマは南米のアンデス山地など乾燥した環境で飼育されている家畜である。"+"<br>"
