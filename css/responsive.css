@@ -82,7 +82,7 @@ p{
   z-index: 150;
   background: rgb(255, 255, 195);
   color:rgb(0, 175, 166);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   line-height: 1.6;
   vertical-align: middle;
@@ -118,7 +118,7 @@ p{
 }
 .nav-item-cp {
   display: table-cell;
-  background: rgb(255, 140, 119);
+  background: rgb(255, 149, 130);
   border: solid 2px black;
   padding: 0;
   height:40px;
@@ -126,7 +126,7 @@ p{
 }
 .nav-item-bt {
   display: table-cell;
-  background: rgb(255, 255, 79);
+  background: rgb(255, 255, 103);
   border: solid 2px black;
   padding: 0;
   height:40px;
