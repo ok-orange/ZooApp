@@ -35,8 +35,8 @@ function AnimalInformation(mark_title, mark_img, mark_num){
   if(a == 1){
     var geo_text2 = AnimalData[mark_num];
   }else{
-    //var geo_text2 = "<h4>動物の近くに行くと、情報が見られるようになるよ！"+"<br>"+mark_title+"を見に行こう！<\h4>";
-    var geo_text2 = AnimalData[mark_num];
+    var geo_text2 = "<h4>動物の近くに行くと、情報が見られるようになるよ！"+"<br>"+mark_title+"を見に行こう！<\h4>";
+    //var geo_text2 = AnimalData[mark_num];
   }
   img.src = mark_img;
   document.getElementById("text_title").innerHTML = geo_text1;   
@@ -101,8 +101,8 @@ function HowToUse(){
         + "<p>画面左下の「アンケート」 ボタンを押してね！</p>"+"<br>"+"<br>"+"<br>"+"<br>";
   
   //テスト確認用
-  /*alert("Data in LS："+"\n"
-        +localStorage.getItem('Data'));*/
+  alert("Data in LS："+"\n"
+        +localStorage.getItem('Data'));
 }
 
 
@@ -348,18 +348,3 @@ function ShowBT(){
     ClearToilet();
     bt_f = 0;
 }}
-
-
-/*---------- ハンバーガーメニュー ----------*
-$(function(){
-  $('.hamburger').click(function(){
-    $(this).toggleClass('active');
-
-    if($(this).hasClass('active')){
-      $('.globalMenu').addClass('active');
-    }else{
-      $('.globalMenu').removeClass('active');
-    }
-  })
-})
-*/
