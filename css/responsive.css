@@ -81,7 +81,7 @@ p{
   height:28px;
   z-index: 150;
   background: rgb(255, 255, 195);
-  color:rgb(0, 196, 186);
+  color:rgb(0, 175, 166);
   font-size: 15px;
   font-weight: bold;
   line-height: 1.6;
@@ -110,7 +110,7 @@ p{
 
 .nav-item-q {
   display: table-cell;
-  background: rgb(151, 255, 250);
+  background: rgb(138, 235, 230);
   border: solid 2px black;
   padding: 0;
   height:40px;
@@ -118,7 +118,7 @@ p{
 }
 .nav-item-cp {
   display: table-cell;
-  background: rgb(255, 120, 96);
+  background: rgb(255, 140, 119);
   border: solid 2px black;
   padding: 0;
   height:40px;
@@ -126,7 +126,7 @@ p{
 }
 .nav-item-bt {
   display: table-cell;
-  background: yellow;
+  background: rgb(255, 255, 79);
   border: solid 2px black;
   padding: 0;
   height:40px;
@@ -134,7 +134,7 @@ p{
 }
 .nav-item-h {
   display: table-cell;
-  background: orange;
+  background: rgb(255, 184, 52);
   border: solid 2px black;
   padding: 0;
   height:40px;
