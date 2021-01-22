@@ -35,8 +35,8 @@ function AnimalInformation(mark_title, mark_img, mark_num){
   if(a == 1){
     var geo_text2 = AnimalData[mark_num];
   }else{
-    //var geo_text2 = "<h4>動物の近くに行くと、情報が見られるようになるよ。"+"<br>"+mark_title+"を見に行こう！<\h4>";
-    var geo_text2 = AnimalData[mark_num];
+    var geo_text2 = "<h4>動物の近くに行くと、情報が見られるようになるよ。"+"<br>"+mark_title+"を見に行こう！<\h4>";
+    //var geo_text2 = AnimalData[mark_num];
   }
   img.src = mark_img;
   document.getElementById("text_title").innerHTML = geo_text1;   
@@ -99,6 +99,10 @@ function HowToUse(){
         + "<p>現在地とベンチ・トイレの場所を、マップに表示・非表示できるよ。</p>"+"<br>"
         + "<h3>・とくしまZooウォーカーを終了するとき</h3>"
         + "<p>画面左下の「アンケート」 ボタンを押してね！</p>"+"<br>"+"<br>"+"<br>";
+  
+  //テスト確認用
+  alert("Data in LS："+"\n"
+        +localStorage.getItem('Data'));
 }
 
 
@@ -201,7 +205,6 @@ function StockLS(data){
     Data = Data.length > 2880 ? Data.slice(-10) : Data;   }
   Data.push(data);
   localStorage.setItem('Data', JSON.stringify(Data));
-  //alert("StockLS：" + localStorage.getItem("Data"));
 }
 
 
