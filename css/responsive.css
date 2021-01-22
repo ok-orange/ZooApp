@@ -86,9 +86,9 @@ p{
   font-weight: bold;
   line-height: 1.5;
   vertical-align: middle;
-  color: white;
+  color: black;
   background: rgb(98, 226, 183);
-  text-shadow:1px 0 0 #000,0 1px 0 #000,-1px 0 0 #000,0 -1px 0 #000;
+  /*text-shadow:1px 0 0 #000,0 1px 0 #000,-1px 0 0 #000,0 -1px 0 #000;*/
 }
 
 .gnav {
