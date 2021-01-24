@@ -41,10 +41,8 @@ function AnimalInformation(mark_title, mark_img, mark_num){
     }else{
       var geo_text2 = "<div style='text-align: center'><img src="+ mark_img +" width='90%'></div>"
                     + "<h4>動物の近くに行くと、情報が見られるようになるよ！"+"<br>"+mark_title+"を見に行こう！<\h4>";
-      //var geo_text2 = AnimalData[mark_num];
     }
   }
-  //img.src = mark_img;
   document.getElementById("text_title").innerHTML = geo_text1;   
   document.getElementById("text_ae").innerHTML = geo_text2;
 }
@@ -93,9 +91,6 @@ function PointCheck_Mark(mark_title, mark_img, mark_num){
 
 /*---------- つかいかた ----------*/
 function HowToUse(){
-  /*img = document.getElementById("text_img");
-  if(img.src == null){}
-  else{  img.src = "";  }*/
   document.getElementById("text_title").innerHTML
     = "<h1>～使い方～</h1>";
   document.getElementById("text_ae").innerHTML
