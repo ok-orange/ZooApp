@@ -113,7 +113,7 @@ p{
 
 .nav-item-q {
   display: table-cell;
-  background: rgb(138, 235, 230);
+  background: rgb(255, 255, 103);/*rgb(138, 235, 230);*/
   border: solid 2px black;
   padding: 0;
   height:40px;
@@ -129,7 +129,7 @@ p{
 }
 .nav-item-bt {
   display: table-cell;
-  background: rgb(255, 255, 103);
+  background:  rgb(188, 255, 88);/*rgb(255, 255, 103);*/
   border: solid 2px black;
   padding: 0;
   height:40px;
