@@ -11,6 +11,7 @@ var bench=[];
 var toilet = [];
 var currentInfoWindow = null;
 var np = 0;
+var bt = 0;
 
 $.cookie('markerData', JSON.stringify(markerData), {secure:true});
 "use strict";
@@ -259,7 +260,7 @@ function PointCheck(pos){
       let OUT = pos.timestamp;
       let s = sousa[cp_n];
       let out = AdjastTime(OUT);
-      let DataToLS = {cp_n, s, np, inT, out};   //{チェックポイント,どうぶつ情報操作回数,滞在時間,アウト時間}
+      let DataToLS = {cp_n, s, np, bt, inT, out};   //{チェックポイント,どうぶつ情報操作回数,滞在時間,アウト時間}
       StockLS(DataToLS);
       inT = 0;
       cp_f = 0;
@@ -359,6 +360,7 @@ function ShowBT(){
   if(bt_f == 0){
     SetBench();
     SetToilet();
+    bt++;
     bt_f = 1;
   }else{
     ClearBench();
