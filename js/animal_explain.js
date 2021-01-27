@@ -314,7 +314,6 @@ let AnimalData = [
 
     //サバンナ区
   "<div style='text-align: center'><img src='./pic/sabanna3.JPG' width='90%'></div>"
-    +"<h3>とくしま動物園は、日本で一番カピバラが多い動物園だよ！</h3>"+"<br>"
     +"<h2>カピバラ</h2>"
     +"<h3>齧歯目(げっしもく)テンジクネズミ科"+"<br>" 
     +"<P>(生息地)南アメリカ東部</p></h3>" +"<br>"
