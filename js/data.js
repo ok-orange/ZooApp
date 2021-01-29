@@ -89,7 +89,7 @@ let markerData = [
 //markerDataとの番号合わせに片方をcheckCircle[0]とする
 let checkCircle = [
   { lat: 34.01541, lng: 134.52263,  //サバンナ１
-    r: 14
+    r: 15
   },{
     lat: 34.01529, lng: 134.52138,  //とり
     r: 33
@@ -119,7 +119,7 @@ let checkCircle = [
     r: 11
   },{
     lat: 34.01518, lng: 134.52230,  //サバンナ２
-    r: 14
+    r: 15
   },{
     lat: 34.01487, lng: 134.52246,  //フラミンゴ
     r: 16
