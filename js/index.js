@@ -18,11 +18,11 @@ $.cookie('markerData', JSON.stringify(markerData), {secure:true});
 
 window.onload = () =>{
   alert("とくしまZooウォーカーを開いていただき、ありがとうございます！"+"\n"+"ぜひご利用ください。"+"\n"+"\n"+"※ご利用後は、画面左下の「アンケート」からアンケートへのご協力をお願いいたします。");
-  getPosition();    //最初に現在位置を取得しておく
-  initMap();
   for(let i=0; i<markerData.length; i++){
     sousa[i] = 0;
-  } 
+  }
+  getPosition();    //最初に現在位置を取得しておく
+  initMap();
   StockPosition();  //定期的に位置を取得
 }
 
