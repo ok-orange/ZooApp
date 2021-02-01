@@ -249,6 +249,7 @@ function PointCheck(pos){
             }else{
               cp_n = i; }
             cp_f = 1;
+            inT ++;
           }else{
       }}else{   break;   }
     }
