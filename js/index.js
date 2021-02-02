@@ -39,10 +39,9 @@ function AnimalInformation(mark_title, mark_img, mark_num){
     if(mark_num == 0){
        var geo_text2 = AnimalData[mark_num];
     }else{
-      var geo_text2 = AnimalData[mark_num];
-      /*var geo_text2 = "<div style='text-align: center'><img src="+ mark_img +" width='90%'></div>"
+       var geo_text2 = "<div style='text-align: center'><img src="+ mark_img +" width='90%'></div>"
                     + "<h4>動物の近くに行くと、情報が見られるようになるよ！"+"<br>"+mark_title+"を見に行こう！<\h4>";
-                    */
+                    
     }
   }
   document.getElementById("text_title").innerHTML = geo_text1;   
