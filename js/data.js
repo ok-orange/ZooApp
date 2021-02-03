@@ -142,7 +142,7 @@ let checkCircle = [
   }
 ];
 */
-let checkCircle_new = [
+let checkCircle = [
   { lat: 34.01540, lng: 134.52263,  //サバンナ１
     r: 14
   },{
