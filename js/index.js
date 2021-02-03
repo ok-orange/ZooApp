@@ -90,6 +90,44 @@ function PointCheck_Mark(mark_title, mark_img, mark_num){
 }
 
 
+
+/*----- チェックポイント判定(動物情報) -----*/
+function PointCheck_AE(mark_title, mark_img, mark_num){
+  let ae_num = 0;
+  if(mark_num == 1){    //フライングゲージ
+    ae_num = 0;
+  }else if((mark_num>=2 && mark_num<=7) || mark_num == 11){   //温帯・さる・とり・ゾウ
+    ae_num = 1;
+  }else if(mark_num==8 || mark_num == 9 || mark_num==1){    //ミーア・ライオン・サバンナ
+    ae_num = 2;
+  }else if(mark_num == 10){   //サバンナ２
+    ae_num = 3;
+  }else if(mark_num==12 || mark_num===13){    //寒帯
+    ae_num = 4;
+  }else if(mark_num==14 || mark_num==15){   //コンドル・こども動物園
+    ae_num = 5;
+  }
+
+  let pos = Mark;
+  let ae_lat = AEpoint[ae_num].lat;
+  let ae_lng = AEpoint[ae_num].lng;
+  let d = checkDistance(pos.latitude, pos.longitude, ae_lat, ae_lng);
+  let rslt = 0;   //チェックポイント内：１
+
+  if(d < (AEpoint[ae_num].r)){
+    rslt = 1;
+  }else{}
+  if(rslt == 1){
+    sousa[mark_num] += 1;
+    if(sousa[mark_num] == 1){
+      localStorage.setItem('sousa'+mark_num,'1');
+    }else{}
+  }else{}
+  AnimalInformation(mark_title, mark_img, mark_num);
+}
+
+
+
 /*---------- つかいかた ----------*/
 function HowToUse(){
   document.getElementById("text_title").innerHTML
@@ -142,7 +180,8 @@ function initMap(){
         });
         marker_fixed.addListener('click', function(){
           infoWindow_fixed.open(map, marker_fixed);
-          PointCheck_Mark(mark.title, mark.img, mark.num);
+          //PointCheck_Mark(mark.title, mark.img, mark.num);
+          PointCheck_AE(mark.title, mark.img, mark.num);
           if(currentInfoWindow != null){
             currentInfoWindow.close();
           }
