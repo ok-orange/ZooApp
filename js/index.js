@@ -336,7 +336,8 @@ function ShowPosition(){
     posi_f = 1;
     mark = Mark;
     marker = new google.maps.Marker({
-      position: {lat: mark.latitude, lng: mark.longitude},
+      //position: {lat: mark.latitude, lng: mark.longitude},
+      position: {34.01412, lng: 134.52170},
       map: map,
       title: "Present Location",
       animation: google.maps.Animation.DROP,
